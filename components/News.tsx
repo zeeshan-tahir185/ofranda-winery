@@ -1,42 +1,33 @@
-import Image from "next/image";
 import { news } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 import Title from "./Title";
+import Rail from "./Rail";
+import PostCard from "./PostCard";
 import { ArrowIcon } from "./Icons";
 
-export default function News() {
+export default function News({ locale }: { locale: string }) {
+  const t = getDict(locale);
   return (
-    <section className="news" id="news" data-tone="light">
-      <div className="news__head">
-        <div>
-          <p className="eyebrow" data-reveal>
-            Life at the winery
-          </p>
-          <Title lines={["News", "& events"]} className="title--xl" />
-        </div>
-        <a href="#news" className="link" data-reveal>
-          All news
-          <ArrowIcon className="link__arrow" />
-        </a>
-      </div>
-
-      <div className="news__grid">
-        {news.map((n, i) => (
-          <a href="#news" className="story" key={n.title} data-reveal style={{ transitionDelay: `${i * 0.12}s` }}>
-            <div className="story__img">
-              <Image src={n.image} alt="" fill sizes="(max-width: 900px) 92vw, 30vw" />
-            </div>
-            <p className="story__meta">
-              <span>{n.category}</span>
-              <time>{n.date}</time>
+    <section className="news paper screen" id="news" data-tone="light">
+      <div className="news__inner">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow" data-reveal>
+              {t.news.eyebrow}
             </p>
-            <h3 className="story__title">{n.title}</h3>
-            <p className="story__text">{n.text}</p>
-            <span className="story__more">
-              Read more
-              <ArrowIcon className="link__arrow" />
-            </span>
+            <Title lines={t.news.title} className="title--xl" />
+          </div>
+          <a href={`/${locale}/news`} className="link" data-reveal>
+            {t.ui.allNews}
+            <ArrowIcon className="link__arrow" />
           </a>
-        ))}
+        </div>
+
+        <Rail label={t.news.pageTitle} prevLabel={t.ui.previous} nextLabel={t.ui.next} className="news__rail">
+          {news.map((n, i) => (
+            <PostCard key={n.slug} post={n} locale={locale} sizes="(max-width: 767px) 80vw, (max-width: 1180px) 45vw, 30vw" delay={i * 0.1} reveal />
+          ))}
+        </Rail>
       </div>
     </section>
   );

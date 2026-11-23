@@ -61,3 +61,16 @@ export const ShareIcon = ({ className }: P) => (
     <path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1" />
   </svg>
 );
+
+export const PrintIcon = ({ className }: P) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+    <path d="M6.5 9V3.5h11V9M6.5 17h-3V9.5h17V17h-3" />
+    <rect x="6.5" y="14" width="11" height="6.5" />
+  </svg>
+);
+
+export const DownloadIcon = ({ className }: P) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+    <path d="M12 3.5v12M7 11l5 5 5-5M4 20.5h16" />
+  </svg>
+);

@@ -12,9 +12,11 @@ export default function Motion() {
     (window as unknown as { lenis?: Lenis | null }).lenis = lenis;
 
     const onAnchor = (e: MouseEvent) => {
-      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href*="#"]');
       if (!link) return;
-      const target = document.querySelector(link.getAttribute("href") || "");
+      const url = new URL(link.href, location.href);
+      if (url.pathname !== location.pathname || !url.hash) return;
+      const target = document.querySelector(url.hash);
       if (!target) return;
       e.preventDefault();
       root.classList.remove("menu-open");

@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
-import { locales, type Locale } from "@/lib/content";
+import { locales, site, type Locale } from "@/lib/content";
+import { alternates, getDict } from "@/lib/i18n";
+import Motion from "@/components/Motion";
+import AgeGate from "@/components/AgeGate";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
+import Analytics from "@/components/Analytics";
 import "../globals.css";
 
 const serif = Cormorant_Garamond({
@@ -26,11 +33,24 @@ const mark = Marcellus({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Crama Ofranda — An offering of the land",
-  description:
-    "Certified organic winery in the Republic of Moldova, on the path to biodynamic winemaking.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = getDict(locale);
+  const brand = t.meta.title.split(" — ")[0];
+  return {
+    metadataBase: new URL(site.url),
+    title: { default: t.meta.title, template: `%s — ${brand}` },
+    description: t.meta.description,
+    alternates: alternates(locale),
+    openGraph: {
+      type: "website",
+      siteName: brand,
+      locale,
+      images: [{ url: "/media/hero-poster.jpg", width: 1920, height: 1080 }],
+    },
+    twitter: { card: "summary_large_image" },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#f3ede3",
@@ -51,13 +71,23 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
+  const t = getDict(locale);
+  const headerText = { nav: t.nav, language: t.ui.language, primary: t.ui.primary, secondary: t.ui.secondary, homeLabel: t.ui.homeLabel, menu: t.ui.menu };
 
   return (
     <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: gateScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <Motion />
+        <AgeGate locale={locale} t={t.gate} langLabel={t.ui.language} />
+        <Header locale={locale} t={headerText} />
+        <main>{children}</main>
+        <Footer locale={locale} />
+        <CookieConsent t={t.consent} />
+        <Analytics />
+      </body>
     </html>
   );
 }

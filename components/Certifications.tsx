@@ -1,9 +1,13 @@
+import { certificates } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 import { ArrowIcon } from "./Icons";
-import { Leaf } from "./LineArt";
+import { BiodyvinMark, EcocertMark, EuLeaf } from "./Logo";
 
-export default function Certifications() {
+export default function Certifications({ locale }: { locale: string }) {
+  const { ecocert } = certificates;
+  const c = getDict(locale).cert;
   return (
-    <section className="cert" id="certified" data-tone="dark">
+    <section className="cert half" id="certified" data-tone="dark">
       <div className="cert__media">
         <video className="cert__video" autoPlay muted loop playsInline preload="metadata" poster="/media/earth-poster.jpg">
           <source src="/media/earth.mp4" type="video/mp4" />
@@ -14,72 +18,49 @@ export default function Certifications() {
 
       <div className="cert__inner">
         <div className="cert__head" data-reveal>
-          <p className="eyebrow eyebrow--light">Our certifications</p>
+          <p className="eyebrow eyebrow--light">{c.eyebrow}</p>
           <p className="cert__lead">
-            Grown without compromise, <em>certified with care.</em>
+            {c.lead[0]}
+            <em>{c.lead[1]}</em>
           </p>
+          <a href={`/${locale}/certifications`} className="link link--light cert__more">
+            {c.more}
+            <ArrowIcon className="link__arrow" />
+          </a>
         </div>
 
         <div className="cert__cards">
-          <article className="cert-card" data-reveal>
-            <Leaf className="cert-card__leaf" />
-            <p className="cert-card__kicker">Organic</p>
-            <h3 className="cert-card__title">
-              Certified Organic <em>by ECOCERT</em>
-            </h3>
-            <p className="cert-card__label">Certification code</p>
-            <p className="cert-card__code">MD-BIO-154</p>
-            <p className="cert-card__note">
-              <em>ECOCERT certification since 2024</em>
-            </p>
-            <div className="cert-card__badges">
-              <span className="badge-eco">
-                ECO
-                <br />
-                CERT
-              </span>
-              <span className="badge-sep" />
-              <span className="badge-eu" aria-label="EU organic">
-                <svg viewBox="0 0 60 40" aria-hidden="true">
-                  <rect width="60" height="40" rx="2" fill="currentColor" />
-                  {Array.from({ length: 12 }).map((_, i) => {
-                    const a = (i / 12) * Math.PI * 2;
-                    return <circle key={i} cx={30 + Math.cos(a) * 11} cy={20 + Math.sin(a) * 11} r="1.3" fill="#f3ede3" />;
-                  })}
-                </svg>
-              </span>
+          <article className="badge-card badge-card--eco" data-reveal>
+            <div className="badge-card__logo">
+              <EcocertMark className="eco-mark" />
+              <EuLeaf className="eu-mark" code={ecocert.code} />
+            </div>
+            <div className="badge-card__body">
+              <p className="badge-card__kicker">{c.organic} · {c.since}</p>
+              <p className="badge-card__big">{ecocert.code}</p>
+              <p className="badge-card__text">{c.ecoText}</p>
+              <a className="badge-card__link" href={ecocert.link} target="_blank" rel="noreferrer">
+                {c.ecoLink}
+                <ArrowIcon className="link__arrow" />
+              </a>
             </div>
           </article>
 
-          <article className="cert-card" data-reveal style={{ transitionDelay: "0.15s" }}>
-            <Leaf className="cert-card__leaf cert-card__leaf--flip" />
-            <p className="cert-card__kicker">Biodynamic</p>
-            <h3 className="cert-card__title cert-card__title--caps">
-              Biodynamic, the third stage <em>of certification</em>
-            </h3>
-            <div className="ring" aria-label="Stage 3 of 4">
-              <svg viewBox="0 0 120 120" aria-hidden="true">
-                <circle cx="60" cy="60" r="52" className="ring__track" />
-                <circle cx="60" cy="60" r="52" className="ring__value" pathLength="100" />
-              </svg>
-              <span className="ring__num">
-                3<small>/4</small>
-              </span>
+          <article className="badge-card badge-card--bdv" data-reveal style={{ transitionDelay: "0.15s" }}>
+            <div className="badge-card__logo">
+              <BiodyvinMark className="bdv-mark" />
             </div>
-            <p className="cert-card__note">
-              <em>
-                Ofranda is currently in the third stage of biodynamic certification. The certification has not yet
-                been granted.
-              </em>
-            </p>
-            <p className="cert-card__label">Stage 3 of 4, in progress</p>
+            <div className="badge-card__body">
+              <p className="badge-card__kicker">{c.bdvKicker}</p>
+              <p className="badge-card__big">{c.bdvStage}</p>
+              <p className="badge-card__text">{c.bdvText}</p>
+              <a className="badge-card__link" href={`/${locale}/certifications`}>
+                {c.bdvLink}
+                <ArrowIcon className="link__arrow" />
+              </a>
+            </div>
           </article>
         </div>
-
-        <a href="#certified" className="link link--light" data-reveal>
-          Discover more about our certifications
-          <ArrowIcon className="link__arrow" />
-        </a>
       </div>
     </section>
   );

@@ -1,58 +1,68 @@
 import Image from "next/image";
-import { timeline } from "@/lib/content";
+import { timelinePhoto } from "@/lib/content";
+import { getDict } from "@/lib/i18n";
 import Title from "./Title";
 import { ArrowIcon } from "./Icons";
 
-export default function People() {
+export default function People({ locale }: { locale: string }) {
+  const p = getDict(locale).people;
   return (
     <section className="people" id="people" data-tone="dark">
       <div className="people__grid">
-        <div className="people__visual">
-          <div className="people__main" data-reveal>
-            <div className="people__img" data-parallax="0.12">
-              <Image src="/media/harvest.jpg" alt="Harvest by hand in the vineyard" fill sizes="(max-width: 900px) 92vw, 46vw" />
-            </div>
+        <figure className="people__photo" data-reveal>
+          <div className="people__img" data-parallax="0.1">
+            <Image src={timelinePhoto} alt={p.photoAlt} fill sizes="(max-width: 1180px) 92vw, 46vw" />
           </div>
-          <div className="people__inset" data-reveal>
-            <div className="people__img" data-parallax="0.2">
-              <Image src="/media/picking.jpg" alt="Picking grapes by hand" fill sizes="(max-width: 900px) 50vw, 20vw" />
-            </div>
-          </div>
-        </div>
+          <figcaption className="people__quote">
+            <span className="people__mark">“</span>
+            {p.quote}
+          </figcaption>
+        </figure>
 
         <div className="people__text">
           <p className="eyebrow eyebrow--light" data-reveal>
-            The history and people of Ofranda
+            {p.eyebrow}
           </p>
-          <Title lines={["The people", "behind Ofranda"]} className="title--xl title--light" />
+          <Title lines={p.title} className="title--xl title--light" />
           <p className="body body--light" data-reveal>
-            A winemaker with decades in the cellar and a team of local people who have known these hills all their
-            lives. Every vine is pruned, tended and harvested by hand, by people who believe that good wine begins
-            long before the grapes are picked.
+            {p.text}
           </p>
-          <blockquote className="quote" data-reveal>
-            “We do not make the wine. We accompany it, from the soil to the bottle, and try to keep it honest.”
-          </blockquote>
           <div className="signature" data-reveal>
-            <img src="/media/signature.png" alt="Winemaker's signature" width={983} height={548} />
-            <span>The winemaker of Ofranda</span>
+            <img src="/media/signature.png" alt="" width={983} height={548} />
+            <span>
+              <strong>{p.owner}</strong> · {p.role}
+            </span>
           </div>
-          <a href="#people" className="link link--light" data-reveal>
-            Discover our story
+          <a href={`/${locale}/our-story`} className="link link--light" data-reveal>
+            {p.link}
             <ArrowIcon className="link__arrow" />
           </a>
         </div>
       </div>
 
-      <ol className="timeline">
-        {timeline.map((t, i) => (
-          <li key={t.year} data-reveal style={{ transitionDelay: `${i * 0.12}s` }}>
-            <span className="timeline__year">{t.year}</span>
-            <i className="timeline__dot" />
-            <p>{t.text}</p>
+      <div className="story">
+        <p className="story__title" data-reveal>
+          {p.storyTitle}
+        </p>
+        <ol className="story__track">
+          {p.timeline.map((t, i) => (
+            <li key={t.year} data-reveal style={{ transitionDelay: `${i * 0.1}s` }}>
+              <span className="story__year">{t.year}</span>
+              <i className="story__dot" />
+              <p>{t.text}</p>
+            </li>
+          ))}
+          <li className="story__more" data-reveal style={{ transitionDelay: "0.5s" }}>
+            <span className="story__year">
+              <em>…</em>
+            </span>
+            <i className="story__dot" />
+            <p>
+              <em>{p.more}</em>
+            </p>
           </li>
-        ))}
-      </ol>
+        </ol>
+      </div>
     </section>
   );
 }

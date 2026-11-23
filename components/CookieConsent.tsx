@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { isQrPage } from "./Analytics";
 import { PrivacyIcon } from "./Icons";
+import type { Dict } from "@/lib/i18n";
 
 type Choice = "all" | "essential" | "custom";
 
-export default function CookieConsent() {
+export default function CookieConsent({ t }: { t: Dict["consent"] }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [settings, setSettings] = useState(false);
   const [prefs, setPrefs] = useState({ analytics: false, marketing: false });
@@ -36,26 +40,26 @@ export default function CookieConsent() {
           ? { analytics: false, marketing: false }
           : prefs;
     try {
-      localStorage.setItem("ofranda-consent", JSON.stringify({ ...value, at: Date.now() }));
+      localStorage.setItem("ofranda-consent", JSON.stringify({ ...value, at: Date.now(), version: 1 }));
     } catch {}
+    window.dispatchEvent(new CustomEvent("ofranda-consent", { detail: value }));
     setOpen(false);
     setSettings(false);
   };
 
+  if (isQrPage(pathname)) return null;
+
   return (
     <>
-      <div className={`consent ${open ? "is-open" : ""}`} role="dialog" aria-label="Cookie consent" aria-hidden={!open}>
-        <p className="consent__title">Your privacy matters</p>
-        <p className="consent__text">
-          We use cookies to ensure the proper functioning of our website, improve your browsing experience and, with
-          your consent, analyse website traffic and integrate social media content.
-        </p>
+      <div className={`consent ${open ? "is-open" : ""}`} role="dialog" aria-label={t.label} aria-hidden={!open}>
+        <p className="consent__title">{t.title}</p>
+        <p className="consent__text">{t.text}</p>
 
         {settings && (
           <div className="consent__prefs">
             <label>
               <input type="checkbox" checked disabled />
-              <span>Necessary</span>
+              <span>{t.necessary}</span>
             </label>
             <label>
               <input
@@ -63,7 +67,7 @@ export default function CookieConsent() {
                 checked={prefs.analytics}
                 onChange={(e) => setPrefs((p) => ({ ...p, analytics: e.target.checked }))}
               />
-              <span>Analytics</span>
+              <span>{t.analytics}</span>
             </label>
             <label>
               <input
@@ -71,25 +75,25 @@ export default function CookieConsent() {
                 checked={prefs.marketing}
                 onChange={(e) => setPrefs((p) => ({ ...p, marketing: e.target.checked }))}
               />
-              <span>Marketing</span>
+              <span>{t.marketing}</span>
             </label>
           </div>
         )}
 
         <div className="consent__actions">
           <button type="button" className="btn btn--solid btn--sm" onClick={() => save("all")}>
-            Accept all
+            {t.acceptAll}
           </button>
           <button type="button" className="btn btn--line btn--sm" onClick={() => save("essential")}>
-            Reject non-essential
+            {t.reject}
           </button>
           {settings ? (
             <button type="button" className="btn btn--text" onClick={() => save("custom")}>
-              Save choices
+              {t.save}
             </button>
           ) : (
             <button type="button" className="btn btn--text" onClick={() => setSettings(true)}>
-              Cookie settings
+              {t.settings}
             </button>
           )}
         </div>
@@ -98,7 +102,7 @@ export default function CookieConsent() {
       <button
         type="button"
         className="privacy-fab"
-        aria-label="Privacy settings"
+        aria-label={t.fab}
         onClick={() => {
           setOpen(true);
           setSettings(true);

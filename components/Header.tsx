@@ -1,19 +1,37 @@
 "use client";
 
-import { contact, locales, nav } from "@/lib/content";
+import { usePathname } from "next/navigation";
+import { contact, locales, nav, type NavKey } from "@/lib/content";
 import { MailIcon, PhoneIcon } from "./Icons";
+import { Logo } from "./Logo";
 
-export function Wordmark({ className = "" }: { className?: string }) {
+export function LangLinks({ locale, label, className = "langs" }: { locale: string; label: string; className?: string }) {
+  const pathname = usePathname() || `/${locale}`;
+  const rest = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "");
   return (
-    <span className={`wordmark ${className}`}>
-      <span className="wordmark__top">Crama</span>
-      <span className="wordmark__main">Ofranda</span>
-    </span>
+    <nav className={className} aria-label={label}>
+      {locales.map((l) => (
+        <a key={l} href={`/${l}${rest}`} className={l === locale ? "is-active" : undefined} aria-current={l === locale ? "page" : undefined}>
+          {l.toUpperCase()}
+        </a>
+      ))}
+    </nav>
   );
 }
 
-export default function Header() {
+export type HeaderText = {
+  nav: Record<NavKey, string>;
+  language: string;
+  primary: string;
+  secondary: string;
+  homeLabel: string;
+  menu: string;
+};
+
+export default function Header({ locale, t }: { locale: string; t: HeaderText }) {
   const toggle = () => document.documentElement.classList.toggle("menu-open");
+  const link = (path: string) => `/${locale}${path}`;
+  const items = [...nav.left, ...nav.right];
 
   return (
     <header className="header">
@@ -28,34 +46,28 @@ export default function Header() {
             {contact.phone}
           </a>
         </div>
-        <nav className="langs" aria-label="Language">
-          {locales.map((l) => (
-            <a key={l} href={`/${l}`} className={l === "en" ? "is-active" : undefined} aria-current={l === "en" ? "page" : undefined}>
-              {l.toUpperCase()}
-            </a>
-          ))}
-        </nav>
+        <LangLinks locale={locale} label={t.language} />
       </div>
 
       <div className="header__bar">
-        <nav className="header__nav header__nav--left" aria-label="Primary">
+        <nav className="header__nav header__nav--left" aria-label={t.primary}>
           {nav.left.map((n) => (
-            <a key={n.href} href={n.href}>
-              {n.label}
+            <a key={n.href} href={link(n.href)}>
+              {t.nav[n.key]}
             </a>
           ))}
         </nav>
-        <a href="#top" className="header__brand" aria-label="Crama Ofranda, home">
-          <Wordmark />
+        <a href={link("")} className="header__brand" aria-label={t.homeLabel}>
+          <Logo className="header__logo" />
         </a>
-        <nav className="header__nav header__nav--right" aria-label="Secondary">
+        <nav className="header__nav header__nav--right" aria-label={t.secondary}>
           {nav.right.map((n) => (
-            <a key={n.href} href={n.href}>
-              {n.label}
+            <a key={n.href} href={link(n.href)}>
+              {t.nav[n.key]}
             </a>
           ))}
         </nav>
-        <button type="button" className="burger" onClick={toggle} aria-label="Menu">
+        <button type="button" className="burger" onClick={toggle} aria-label={t.menu}>
           <span />
           <span />
         </button>
@@ -63,23 +75,17 @@ export default function Header() {
 
       <div className="menu">
         <nav className="menu__nav">
-          {[...nav.left, ...nav.right].map((n, i) => (
-            <a key={n.href} href={n.href} style={{ transitionDelay: `${0.08 + i * 0.05}s` }}>
+          {items.map((n, i) => (
+            <a key={n.href} href={link(n.href)} style={{ transitionDelay: `${0.08 + i * 0.05}s` }}>
               <span className="menu__num">0{i + 1}</span>
-              {n.label}
+              {t.nav[n.key]}
             </a>
           ))}
         </nav>
         <div className="menu__foot">
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
           <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a>
-          <div className="langs">
-            {locales.map((l) => (
-              <a key={l} href={`/${l}`} className={l === "en" ? "is-active" : undefined}>
-                {l.toUpperCase()}
-              </a>
-            ))}
-          </div>
+          <LangLinks locale={locale} label={t.language} />
         </div>
       </div>
     </header>
