@@ -4,9 +4,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import ShareBar from "@/components/ShareBar";
-import Rail from "@/components/Rail";
 import { BiodyvinMark, EcocertMark, EuLeaf } from "@/components/Logo";
-import WineCard from "@/components/WineCard";
+import Collection from "@/components/Collection";
 import { DownloadIcon } from "@/components/Icons";
 import TechIcon, { WarningIcon } from "@/components/TechIcon";
 import { alternates, formatDate, formatLitres, formatNumber, getDict } from "@/lib/i18n";
@@ -220,22 +219,8 @@ export default async function WinePage({ params }: Params) {
         </div>
       </section>
 
-      <section className="wine-others" data-tone="light">
-        <div className="wine-others__inner">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">{t.winesSection.eyebrow}</p>
-              <h2 className="title title--lg">
-                {t.winesSection.others[0]} <em>{t.winesSection.others[1]}</em>
-              </h2>
-            </div>
-          </div>
-          <Rail label={t.winesSection.railLabel} prevLabel={t.ui.previous} nextLabel={t.ui.next} className="wines__rail">
-            {others.map((o) => (
-              <WineCard key={o.slug} wine={o} locale={locale} />
-            ))}
-          </Rail>
-        </div>
+      <section className="wine-others" data-tone="dark" aria-label={t.winesSection.others.join(" ")}>
+        <Collection items={others} locale={locale} />
       </section>
     </>
   );

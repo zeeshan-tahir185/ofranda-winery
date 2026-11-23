@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
+import { Bodoni_Moda, Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
 import { locales, site, type Locale } from "@/lib/content";
 import { alternates, getDict } from "@/lib/i18n";
 import Motion from "@/components/Motion";
@@ -23,6 +23,14 @@ const sans = Jost({
   subsets: ["latin", "latin-ext", "cyrillic"],
   weight: ["300", "400", "500"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const display = Bodoni_Moda({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -75,7 +83,7 @@ export default async function RootLayout({
   const headerText = { nav: t.nav, language: t.ui.language, primary: t.ui.primary, secondary: t.ui.secondary, homeLabel: t.ui.homeLabel, menu: t.ui.menu };
 
   return (
-    <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable}`}>
+    <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable} ${display.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: gateScript }} />
       </head>

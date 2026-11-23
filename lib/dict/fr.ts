@@ -148,6 +148,7 @@ const fr: Dict = {
     edition: "Première mise en bouteille · Édition limitée",
     bottles: "bouteilles",
     lot: "Lot",
+    bottlesLabel: "Bouteilles",
     discover: "Découvrir",
     soon: "Détails complets bientôt",
     sheetSoon: "Fiche technique (bientôt)",

@@ -148,6 +148,7 @@ const ro: Dict = {
     edition: "Prima îmbuteliere · Colecție limitată",
     bottles: "sticle",
     lot: "Lot",
+    bottlesLabel: "Sticle",
     discover: "Descoperă mai mult",
     soon: "Detalii complete în curând",
     sheetSoon: "Fișa tehnică (în curând)",

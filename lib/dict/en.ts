@@ -146,6 +146,7 @@ const en = {
     edition: "First bottling · Limited edition",
     bottles: "bottles",
     lot: "Lot",
+    bottlesLabel: "Bottles",
     discover: "Discover more",
     soon: "Full details soon",
     sheetSoon: "Technical sheet (soon)",
