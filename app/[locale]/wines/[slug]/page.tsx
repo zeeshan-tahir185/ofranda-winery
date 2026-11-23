@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import ShareBar from "@/components/ShareBar";
-import { BiodyvinMark, EcocertMark, EuLeaf } from "@/components/Logo";
+import { BiodyvinMark, EuLeaf } from "@/components/Logo";
 import Collection from "@/components/Collection";
 import { DownloadIcon } from "@/components/Icons";
 import TechIcon, { WarningIcon } from "@/components/TechIcon";
@@ -101,18 +101,10 @@ export default async function WinePage({ params }: Params) {
 
               <div className="wine-page__certs">
                 {wine.organic && (
-                  <>
-                    <span className="wine-cert">
-                      <EcocertMark className="wine-cert__eco" />
-                      <span>
-                        {w.organic}
-                        <strong>{certificates.ecocert.code}</strong>
-                      </span>
-                    </span>
-                    <span className="wine-cert">
-                      <EuLeaf className="wine-cert__eu" code={certificates.ecocert.code} />
-                    </span>
-                  </>
+                  <span className="wine-cert">
+                    <EuLeaf className="wine-cert__eu" code={certificates.ecocert.code} />
+                    <span>{w.organic}</span>
+                  </span>
                 )}
                 <span className="wine-cert">
                   <BiodyvinMark className="wine-cert__bdv" />

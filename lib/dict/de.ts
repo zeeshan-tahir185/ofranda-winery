@@ -148,7 +148,6 @@ const de: Dict = {
     edition: "Erste Abfüllung · Limitierte Edition",
     bottles: "Flaschen",
     lot: "Los",
-    bottlesLabel: "Flaschen",
     discover: "Mehr entdecken",
     soon: "Alle Details folgen in Kürze",
     sheetSoon: "Technisches Datenblatt (in Kürze)",
