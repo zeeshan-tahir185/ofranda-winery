@@ -83,7 +83,7 @@ export default async function RootLayout({
   const headerText = { nav: t.nav, language: t.ui.language, primary: t.ui.primary, secondary: t.ui.secondary, homeLabel: t.ui.homeLabel, menu: t.ui.menu };
 
   return (
-    <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable} ${display.variable}`}>
+    <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable} ${display.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: gateScript }} />
       </head>

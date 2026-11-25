@@ -1,10 +1,11 @@
-import { wines } from "@/lib/content";
+import { getWines } from "@/lib/data";
 import Collection from "./Collection";
 
-export default function Wines({ locale }: { locale: string }) {
+export default async function Wines({ locale }: { locale: string }) {
+  const items = await getWines(locale);
   return (
     <section className="wines" id="wines" data-tone="dark">
-      <Collection items={wines} locale={locale} />
+      <Collection items={items} locale={locale} />
     </section>
   );
 }

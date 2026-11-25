@@ -52,19 +52,20 @@ export const certificates = {
   },
 };
 
-export type WineFormat = { litres: number; bottles: number; lot: string };
+export type WineFormat = { litres: number; bottles: number; lot: string; alcohol: number };
 
 export type Wine = {
   slug: string;
   name: string;
   vintage: string;
   grapes: string;
-  alcohol?: number;
   organic: boolean;
   limited: boolean;
   formats: WineFormat[];
   image: string;
+  tint: string;
   bottled?: string;
+  body?: number;
   soon: boolean;
 };
 
@@ -74,12 +75,13 @@ export const wines: Wine[] = [
     name: "Humma",
     vintage: "2024",
     grapes: "Fetească Neagră · Cabernet Sauvignon · Rară Neagră",
-    alcohol: 15.5,
     organic: true,
     limited: false,
-    formats: [{ litres: 0.75, bottles: 4415, lot: "L007" }],
-    image: "/media/humma-bottle.png",
+    formats: [{ litres: 0.75, bottles: 4415, lot: "L007", alcohol: 15.8 }],
+    image: "/media/bottles/humma.png",
+    tint: "#2a1719",
     bottled: "2026-06-05",
+    body: 3,
     soon: false,
   },
   {
@@ -89,8 +91,9 @@ export const wines: Wine[] = [
     grapes: "Fetească Neagră · Cabernet Sauvignon",
     organic: true,
     limited: false,
-    formats: [{ litres: 0.75, bottles: 2663, lot: "L006" }],
-    image: "/media/sample-bottle.png",
+    formats: [{ litres: 0.75, bottles: 2663, lot: "L006", alcohol: 15.2 }],
+    image: "/media/bottles/rupt.png",
+    tint: "#1c1614",
     soon: true,
   },
   {
@@ -100,8 +103,9 @@ export const wines: Wine[] = [
     grapes: "Fetească Neagră · Cabernet Sauvignon · Rară Neagră",
     organic: false,
     limited: false,
-    formats: [{ litres: 0.75, bottles: 13783, lot: "L005" }],
-    image: "/media/sample-bottle.png",
+    formats: [{ litres: 0.75, bottles: 13783, lot: "L005", alcohol: 14.7 }],
+    image: "/media/bottles/vinul-fara-nume.png",
+    tint: "#211c19",
     soon: true,
   },
   {
@@ -112,10 +116,11 @@ export const wines: Wine[] = [
     organic: false,
     limited: true,
     formats: [
-      { litres: 0.75, bottles: 600, lot: "L004" },
-      { litres: 1.5, bottles: 300, lot: "L003" },
+      { litres: 0.75, bottles: 600, lot: "L004", alcohol: 15.5 },
+      { litres: 1.5, bottles: 300, lot: "L003", alcohol: 15.5 },
     ],
-    image: "/media/sample-bottle.png",
+    image: "/media/bottles/cabernet-sauvignon.png",
+    tint: "#2a1a17",
     soon: true,
   },
   {
@@ -126,15 +131,16 @@ export const wines: Wine[] = [
     organic: false,
     limited: true,
     formats: [
-      { litres: 0.75, bottles: 600, lot: "L002" },
-      { litres: 1.5, bottles: 300, lot: "L001" },
+      { litres: 0.75, bottles: 600, lot: "L002", alcohol: 15.5 },
+      { litres: 1.5, bottles: 300, lot: "L001", alcohol: 15.8 },
     ],
-    image: "/media/sample-bottle.png",
+    image: "/media/bottles/feteasca-neagra.png",
+    tint: "#2b1a14",
     soon: true,
   },
 ];
 
-export const getWine = (slug: string) => wines.find((w) => w.slug === slug && !w.soon);
+export const alcoholOf = (wine: Wine) => Array.from(new Set(wine.formats.map((f) => f.alcohol)));
 
 export const timelinePhoto = "/media/harvest.jpg";
 
@@ -152,8 +158,6 @@ export const news: Post[] = [
   { slug: "evening-tasting-among-the-vines", category: "events", iso: "2026-08-21", image: "/media/grapes-dark.jpg" },
   { slug: "ofranda-in-the-press", category: "press", iso: "2026-07-09", image: "/media/hands-grapes.jpg" },
 ];
-
-export const getPost = (slug: string) => news.find((n) => n.slug === slug);
 
 export const social = [
   { label: "Instagram", href: "https://instagram.com" },

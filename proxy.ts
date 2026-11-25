@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { locales, wines } from "@/lib/content";
+import { locales } from "@/lib/content";
 
 const translated: readonly string[] = locales;
 
@@ -17,9 +17,8 @@ export function proxy(request: NextRequest) {
 
   const qr = pathname.match(/^\/w\/([a-z0-9-]+)\/?$/);
   if (qr) {
-    const wine = wines.find((w) => w.slug === qr[1] && !w.soon);
     const url = request.nextUrl.clone();
-    url.pathname = wine ? `/${preferredLocale(request)}/wines/${wine.slug}` : `/${preferredLocale(request)}`;
+    url.pathname = `/${preferredLocale(request)}/wines/${qr[1]}`;
     return NextResponse.redirect(url, 307);
   }
 
@@ -32,5 +31,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|media|favicon.ico|icon.svg|robots.txt|sitemap.xml|.*\\..*).*)"],
+  matcher: ["/((?!_next|admin|api|media|favicon.ico|icon.svg|robots.txt|sitemap.xml|.*\\..*).*)"],
 };

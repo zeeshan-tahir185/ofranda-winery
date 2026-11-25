@@ -1,12 +1,13 @@
-import { news } from "@/lib/content";
+import { getPosts } from "@/lib/data";
 import { getDict } from "@/lib/i18n";
 import Title from "./Title";
 import Rail from "./Rail";
 import PostCard from "./PostCard";
 import { ArrowIcon } from "./Icons";
 
-export default function News({ locale }: { locale: string }) {
+export default async function News({ locale }: { locale: string }) {
   const t = getDict(locale);
+  const news = (await getPosts(locale)).slice(0, 6);
   return (
     <section className="news paper screen" id="news" data-tone="light">
       <div className="news__inner">

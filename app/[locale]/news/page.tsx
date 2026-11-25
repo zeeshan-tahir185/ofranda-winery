@@ -3,7 +3,8 @@ import PageHero from "@/components/PageHero";
 import NewsList from "@/components/NewsList";
 import PostCard from "@/components/PostCard";
 import { alternates, getDict } from "@/lib/i18n";
-import { news, newsCategories } from "@/lib/content";
+import { newsCategories } from "@/lib/content";
+import { getPosts } from "@/lib/data";
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -16,6 +17,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function NewsPage({ params }: Params) {
   const { locale } = await params;
   const t = getDict(locale);
+  const news = await getPosts(locale);
   return (
     <>
       <PageHero locale={locale} eyebrow={t.news.eyebrow} title={t.news.title} image="/media/vineyard.jpg" crumbs={[{ label: t.news.pageTitle }]} />

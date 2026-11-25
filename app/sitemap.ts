@@ -1,15 +1,17 @@
 import type { MetadataRoute } from "next";
-import { locales, news, site, wines } from "@/lib/content";
+import { locales, site } from "@/lib/content";
+import { getPosts, getWines } from "@/lib/data";
 import { legalSlugs } from "@/lib/legal";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [items, posts] = await Promise.all([getWines("en"), getPosts("en")]);
   const paths = [
     "",
     "/our-story",
     "/certifications",
     "/news",
-    ...news.map((n) => `/news/${n.slug}`),
-    ...wines.filter((w) => !w.soon).map((w) => `/wines/${w.slug}`),
+    ...posts.map((n) => `/news/${n.slug}`),
+    ...items.filter((w) => w.page).map((w) => `/wines/${w.slug}`),
     ...legalSlugs.map((s) => `/${s}`),
   ];
   const languages = (path: string) => Object.fromEntries(locales.map((l) => [l, `${site.url}/${l}${path}`]));

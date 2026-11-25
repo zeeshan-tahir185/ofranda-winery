@@ -6,24 +6,21 @@ import JsonLd from "@/components/JsonLd";
 import ShareBar from "@/components/ShareBar";
 import PostCard from "@/components/PostCard";
 import { alternates, formatDate, getDict } from "@/lib/i18n";
-import { getPost, locales, news, site } from "@/lib/content";
+import { locales, site } from "@/lib/content";
+import { getPostView, getPosts } from "@/lib/data";
 
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
-export function generateStaticParams() {
-  return locales.flatMap((locale) => news.map((n) => ({ locale, slug: n.slug })));
+export async function generateStaticParams() {
+  const posts = await getPosts("en");
+  return locales.flatMap((locale) => posts.map((n) => ({ locale, slug: n.slug })));
 }
-
-const textOf = (locale: string, slug: string) => {
-  const posts = getDict(locale).news.posts;
-  return posts[slug as keyof typeof posts];
-};
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = getPost(slug);
+  const post = await getPostView(locale, slug);
   if (!post) return {};
-  const text = textOf(locale, slug);
+  const text = post;
   return {
     title: text.title,
     description: text.text,
@@ -34,11 +31,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function Article({ params }: Params) {
   const { locale, slug } = await params;
-  const post = getPost(slug);
+  const post = await getPostView(locale, slug);
   if (!post) notFound();
   const t = getDict(locale);
-  const text = textOf(locale, slug);
-  const more = news.filter((n) => n.slug !== slug).slice(0, 3);
+  const text = post;
+  const more = (await getPosts(locale)).filter((n) => n.slug !== slug).slice(0, 3);
 
   return (
     <>
@@ -50,7 +47,7 @@ export default async function Article({ params }: Params) {
           description: text.text,
           datePublished: post.iso,
           inLanguage: locale,
-          image: `${site.url}${post.image}`,
+          image: post.image.startsWith("http") ? post.image : `${site.url}${post.image}`,
           publisher: { "@type": "Organization", name: site.name },
         }}
       />

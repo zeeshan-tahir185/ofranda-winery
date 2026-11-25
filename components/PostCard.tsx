@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Post } from "@/lib/content";
+import type { PostView } from "@/lib/data";
 import { formatDate, getDict } from "@/lib/i18n";
 import { ArrowIcon } from "./Icons";
 
@@ -12,7 +12,7 @@ export default function PostCard({
   delay = 0,
   reveal = false,
 }: {
-  post: Post;
+  post: PostView;
   locale: string;
   sizes: string;
   heading?: "h2" | "h3";
@@ -21,7 +21,6 @@ export default function PostCard({
   reveal?: boolean;
 }) {
   const t = getDict(locale);
-  const text = t.news.posts[post.slug as keyof typeof t.news.posts];
   const Heading = heading;
   return (
     <a
@@ -37,8 +36,8 @@ export default function PostCard({
         <span>{t.news.categories[post.category]}</span>
         <time dateTime={post.iso}>{formatDate(locale, post.iso)}</time>
       </p>
-      <Heading className="post__title">{text.title}</Heading>
-      {excerpt && <p className="post__text">{text.text}</p>}
+      <Heading className="post__title">{post.title}</Heading>
+      {excerpt && <p className="post__text">{post.text}</p>}
       <span className="post__more">
         {t.ui.readMore}
         <ArrowIcon className="link__arrow" />

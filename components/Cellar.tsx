@@ -18,7 +18,7 @@ export type CellarItem = {
   organic?: string;
   href?: string;
   image: string;
-  sample: boolean;
+  tint: string;
 };
 
 type Props = {
@@ -26,6 +26,7 @@ type Props = {
   label: string;
   discover: string;
   soon: string;
+  notesTitle: string;
 };
 
 const lines = (name: string) => {
@@ -41,7 +42,7 @@ const lines = (name: string) => {
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-export default function Cellar({ items, label, discover, soon }: Props) {
+export default function Cellar({ items, label, discover, soon, notesTitle }: Props) {
   const track = useRef<HTMLDivElement>(null);
   const strip = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -103,7 +104,7 @@ export default function Cellar({ items, label, discover, soon }: Props) {
             const name = lines(w.name);
             const longest = Math.max(...name.map((l) => l.length));
             return (
-              <article key={w.slug} className="cellar__slide" data-slug={w.slug} data-on={i === active || undefined} aria-hidden={i !== active || undefined}>
+              <article key={w.slug} className="cellar__slide" style={{ ["--tint" as string]: w.tint }} data-on={i === active || undefined} aria-hidden={i !== active || undefined}>
                 <div className="cellar__bg" />
                 <p className="cellar__count">
                   {pad(i + 1)}
@@ -119,13 +120,7 @@ export default function Cellar({ items, label, discover, soon }: Props) {
 
                 <div className="cellar__bottle">
                   <span className="cellar__glow" />
-                  <Image src={w.image} alt={`${w.name} ${w.vintage}`} width={372} height={1418} sizes="(max-width: 767px) 140px, 240px" className="cellar__img" />
-                  {w.sample && (
-                    <span className="cellar__label" aria-hidden="true">
-                      <span className="cellar__label-name">{w.name}</span>
-                      <span className="cellar__label-year">{w.vintage}</span>
-                    </span>
-                  )}
+                  <Image src={w.image} alt={`${w.name} ${w.vintage}`} width={380} height={1400} sizes="(max-width: 767px) 160px, 260px" className="cellar__img" />
                 </div>
 
                 <div className="cellar__info">
@@ -134,12 +129,14 @@ export default function Cellar({ items, label, discover, soon }: Props) {
                   </p>
                   {w.edition && <p className="cellar__edition">{w.edition}</p>}
                   <p className="cellar__grapes">{w.grapes}</p>
-                  <p className={w.summary ? "cellar__summary" : "cellar__summary cellar__summary--soon"}>{w.summary || soon}</p>
-                  {w.href && (
+                  {w.summary && <p className="cellar__summary">{w.summary}</p>}
+                  {w.href ? (
                     <a href={w.href} className="cellar__more" tabIndex={i === active ? 0 : -1}>
                       <span>{discover}</span>
                       <ArrowIcon className="link__arrow" />
                     </a>
+                  ) : (
+                    <p className="cellar__soon">{soon}</p>
                   )}
                 </div>
 
@@ -154,6 +151,7 @@ export default function Cellar({ items, label, discover, soon }: Props) {
                       ))}
                     </dl>
                   )}
+                  {w.notes.length > 0 && <p className="cellar__notes-title">{notesTitle}</p>}
                   {w.notes.length > 0 && (
                     <ul className="cellar__notes">
                       {w.notes.map((t) => (

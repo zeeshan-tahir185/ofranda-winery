@@ -1,15 +1,14 @@
-import type { Wine } from "@/lib/content";
-import { certificates } from "@/lib/content";
+import type { WineView } from "@/lib/data";
+import { alcoholOf, certificates } from "@/lib/content";
 import { formatAlcohol, getDict } from "@/lib/i18n";
 import Cellar, { type CellarItem } from "./Cellar";
 
-export default function Collection({ items, locale }: { items: Wine[]; locale: string }) {
+export default function Collection({ items, locale }: { items: WineView[]; locale: string }) {
   const d = getDict(locale);
   const t = d.wine;
 
   const data: CellarItem[] = items.map((wine) => {
-    const text = d.wineText[wine.slug as keyof typeof d.wineText];
-    const specs = wine.alcohol ? [{ label: t.labels.alcohol, value: formatAlcohol(locale, wine.alcohol) }] : [];
+    const specs = [{ label: t.labels.alcohol, value: alcoholOf(wine).map((a) => formatAlcohol(locale, a)).join(" · ") }];
     return {
       slug: wine.slug,
       name: wine.name,
@@ -17,15 +16,15 @@ export default function Collection({ items, locale }: { items: Wine[]; locale: s
       type: t.style,
       edition: wine.limited ? t.edition : undefined,
       grapes: wine.grapes,
-      summary: text?.summary,
-      notes: text?.highlights ?? [],
+      summary: wine.summary,
+      notes: wine.notes,
+      tint: wine.tint,
       specs,
       organic: wine.organic ? certificates.ecocert.code : undefined,
-      href: wine.soon ? undefined : `/${locale}/wines/${wine.slug}`,
+      href: !wine.page ? undefined : `/${locale}/wines/${wine.slug}`,
       image: wine.image,
-      sample: wine.image === "/media/sample-bottle.png",
     };
   });
 
-  return <Cellar items={data} label={d.winesSection.railLabel} discover={t.discover} soon={t.soon} />;
+  return <Cellar items={data} label={d.winesSection.railLabel} discover={t.discover} soon={t.soon} notesTitle={t.vinification} />;
 }
