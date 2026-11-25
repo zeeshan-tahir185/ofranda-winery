@@ -72,7 +72,7 @@ type Media = { url?: string | null } | number | null | undefined;
 
 const toPairs = (rows?: Row[] | null): Pair[] => (rows ?? []).map((r) => [r.label ?? "", r.value ?? ""]);
 const toLines = (rows?: Line[] | null) => (rows ?? []).map((r) => r.text ?? "").filter(Boolean);
-const mediaUrl = (m: Media) => (m && typeof m === "object" && m.url ? m.url : "");
+const mediaUrl = (m: Media) => (m && typeof m === "object" && m.url ? m.url.replace(/^https?:\/\/[^/]+(?=\/api\/media\/)/, "") : "");
 
 type CmsWine = {
   slug: string;
