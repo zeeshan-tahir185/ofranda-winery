@@ -128,8 +128,10 @@ export default async function WinePage({ params }: Params) {
             <p className="vp__age-title">{p.ageing}</p>
             <div className="vp__age-scale">
               <span className={`vp__age-window ${ageing ? "is-set" : ""}`} style={windowStyle}>
-                <span>{p.window}</span>
-                <b>{ageing ? `${ageing[0]}–${ageing[1]}` : t.tbc}</b>
+                <span className="vp__age-note">
+                  <span>{p.window}</span>
+                  <b>{ageing ? `${ageing[0]}–${ageing[1]}` : t.tbc}</b>
+                </span>
               </span>
               <ol>
                 {years

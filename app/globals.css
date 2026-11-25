@@ -3725,11 +3725,14 @@ html:not(.is-scrolled)[data-header-tone="light"] .header__utility {
   background: repeating-linear-gradient(180deg, var(--gold) 0 7px, transparent 7px 12px);
 }
 
-.vp__age-window span,
-.vp__age-window b {
+.vp__age-note {
   position: absolute;
   left: 70px;
+  top: 34%;
   width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
   font-size: 11px;
   line-height: 1.35;
 }
@@ -3741,13 +3744,17 @@ html:not(.is-scrolled)[data-header-tone="light"] .header__utility {
   box-shadow: 0 0 18px rgba(210, 173, 127, 0.55);
 }
 
-.vp__age-window span {
-  top: 34%;
+.vp__age-note span {
   color: var(--ivory-text);
 }
 
-.vp__age-window b {
-  top: calc(34% + 1.6em);
+@media (min-width: 768px) and (max-width: 1365px) {
+  .vp__age-note {
+    width: 96px;
+  }
+}
+
+.vp__age-note b {
   font-weight: 400;
   font-style: italic;
   color: var(--dim-text);
@@ -4405,8 +4412,7 @@ a.vp-shelf__item:hover .vp-shelf__img,
     margin-left: 22px;
   }
 
-  .vp__age-window span,
-  .vp__age-window b {
+  .vp__age-note {
     left: 62px;
     width: 92px;
   }
