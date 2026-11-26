@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { l, lines, pairs } from "../fields";
+import { hidden, l, lines, pairs } from "../fields";
 import { refreshSite } from "../revalidate";
 
 export const Wines: CollectionConfig = {
@@ -51,6 +51,7 @@ export const Wines: CollectionConfig = {
               type: "row",
               fields: [
                 { name: "organic", type: "checkbox", label: l("Organic (green leaf)", "Ecologic (frunza verde)") },
+                { name: "biodynamic", type: "checkbox", label: l("Biodynamic (BIODYVIN logo)", "Biodinamic (logo BIODYVIN)") },
                 { name: "limited", type: "checkbox", label: l("First bottling · Limited edition", "Prima îmbuteliere · Colecție limitată") },
                 { name: "pageLive", type: "checkbox", label: l("Dedicated wine page is live", "Pagina dedicată este publicată") },
               ],
@@ -95,8 +96,8 @@ export const Wines: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    { name: "style", type: "text", localized: true, label: l("Style classification", "Clasificare stilistică") },
-                    { name: "segment", type: "text", localized: true, label: l("Category", "Segment") },
+                    { name: "style", type: "text", localized: true, admin: { hidden: true } },
+                    { name: "segment", type: "text", localized: true, label: l("Collection", "Colecție") },
                   ],
                 },
                 lines("profile", l("Profile words", "Profil")),
@@ -121,12 +122,13 @@ export const Wines: CollectionConfig = {
             {
               type: "collapsible",
               label: l("Ageing potential and dates", "Potențial de maturare și date"),
+              admin: { description: l("Leave the years empty to hide the drinking window on the page.", "Lăsați anii goi pentru a ascunde perioada de consum de pe pagină.") },
               fields: [
                 {
                   type: "row",
                   fields: [
-                    { name: "ageingFrom", type: "number", label: l("Drinking window from (year)", "Fereastra de consum de la (an)") },
-                    { name: "ageingTo", type: "number", label: l("Drinking window to (year)", "Fereastra de consum până la (an)") },
+                    { name: "ageingFrom", type: "number", label: l("Drinking window from (year)", "Perioada optimă de consum de la (an)") },
+                    { name: "ageingTo", type: "number", label: l("Drinking window to (year)", "Perioada optimă de consum până la (an)") },
                     { name: "bottled", type: "date", label: l("Bottling date", "Data îmbutelierii"), admin: { date: { pickerAppearance: "dayOnly" } } },
                   ],
                 },
@@ -134,8 +136,8 @@ export const Wines: CollectionConfig = {
             },
             pairs("vinification", l("Vinification", "Vinificație")),
             pairs("terroir", l("Terroir", "Terroir")),
-            pairs("characteristics", l("Characteristics", "Caracteristici")),
-            pairs("certification", l("Certification", "Certificare")),
+            hidden(pairs("characteristics", l("Characteristics", "Caracteristici"))),
+            hidden(pairs("certification", l("Certification", "Certificare"))),
             pairs("serving", l("Serving", "Servire")),
             lines("pairing", l("Food pairing", "Asociere culinară")),
             {
@@ -153,9 +155,9 @@ export const Wines: CollectionConfig = {
                 pairs("nutrition", l("Nutritional values per 100 ml", "Valori nutriționale per 100 ml")),
               ],
             },
-            pairs("analytics", l("Analytical data", "Date analitice")),
-            lines("producer", l("Producer address", "Adresa producătorului")),
-            pairs("bottling", l("Bottling", "Îmbuteliere")),
+            pairs("analytics", l("Laboratory parameters", "Parametri de laborator")),
+            hidden(lines("producer", l("Producer address", "Adresa producătorului"))),
+            hidden(pairs("bottling", l("Bottling", "Îmbuteliere"))),
           ],
         },
       ],

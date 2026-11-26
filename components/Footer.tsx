@@ -1,7 +1,7 @@
 import { company, contact, social } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { LangLinks } from "./Header";
-import { Logo } from "./Logo";
+import { BiodyvinMark, EuLeaf, Logo } from "./Logo";
 import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, YoutubeIcon } from "./Icons";
 
 const icons = { Instagram: InstagramIcon, Facebook: FacebookIcon, YouTube: YoutubeIcon };
@@ -64,6 +64,23 @@ export default function Footer({ locale }: { locale: string }) {
             })}
           </div>
           <LangLinks locale={locale} label={t.ui.language} className="langs langs--footer" />
+          <div className="footer__certs">
+            <h4>{t.wine.page.certification}</h4>
+            <div className="footer__cert">
+              <EuLeaf className="footer__leaf" />
+              <span>
+                {f.certs[0][0]}
+                <b>{f.certs[0][1].replace(/-/g, "\u2011")}</b>
+              </span>
+            </div>
+            <div className="footer__cert">
+              <BiodyvinMark className="footer__bdv" />
+              <span>
+                {f.certs[1][0]}
+                <b>{f.certs[1][1]}</b>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 

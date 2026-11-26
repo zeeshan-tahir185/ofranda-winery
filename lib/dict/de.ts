@@ -36,7 +36,10 @@ const de: Dict = {
     breadcrumb: "Brotkrumen-Navigation",
   },
   gate: {
-    title: ["Haben Sie das gesetzliche Mindestalter für Alkohol", "in Ihrem Land erreicht?"],
+    title: [
+      "Haben Sie das gesetzliche Mindestalter für Alkohol",
+      "in Ihrem Land erreicht?",
+    ],
     text: "Bitte bestätigen Sie, dass Sie das in Ihrem Land vorgeschriebene Mindestalter erreicht haben, um diese Website mit Informationen über Wein und alkoholische Getränke zu besuchen.",
     yes: "Ja",
     no: "Nein",
@@ -59,6 +62,10 @@ const de: Dict = {
     fab: "Datenschutz-Einstellungen",
   },
   footer: {
+    certs: [
+      ["Ökologischer Weinbau", "ECOCERT-zertifiziert · MD-BIO-154"],
+      ["Biodynamischer Weinbau", "In Umstellung · 3. Jahr"],
+    ],
     useful: "Nützliche Links",
     about: "Über uns",
     certifications: "Unsere Zertifizierungen",
@@ -72,10 +79,14 @@ const de: Dict = {
     cookieSettings: "Cookie-Einstellungen",
   },
   company: {
-    tagline: "Handwerklich hergestellte Weine aus der Republik Moldau, ökologisch zertifiziert durch ECOCERT MD-BIO-154.",
+    tagline:
+      "Handwerklich hergestellte Weine aus der Republik Moldau, ökologisch zertifiziert durch ECOCERT MD-BIO-154.",
     about:
       "Weingut OFRANDA ist ein Boutique-Weingut in der Republik Moldau, das sich der Herstellung hochwertiger handwerklicher Weine widmet. Das Weingut liegt in Stăuceni, nur 11 km vom Zentrum Chișinăus entfernt, und verbindet einen tiefen Respekt vor der Natur, ökologischen Weinbau und einen sorgfältigen Ansatz bei der Weinbereitung.",
-    address: ["Republik Moldau, MD-4839", "Dumbrăvii-Straße 46, Stăuceni, Gemeinde Chișinău"],
+    address: [
+      "Republik Moldau, MD-4839",
+      "Dumbrăvii-Straße 46, Stăuceni, Gemeinde Chișinău",
+    ],
   },
   hero: {
     eyebrow: ["Weingut Ofranda", "Republik Moldau"],
@@ -94,9 +105,18 @@ const de: Dict = {
     ],
     link: "Entdecken Sie unsere Geschichte",
     pillars: [
-      { title: "Die Erde", text: "Wir pflegen den Boden als lebendigen Organismus, ohne Chemie." },
-      { title: "Die Rhythmen der Natur", text: "Wir arbeiten im Takt der Jahreszeiten, der Sonne und des Mondes." },
-      { title: "Das Terroir Moldawiens", text: "Unsere Hügel geben jedem Wein seinen eigenen Charakter." },
+      {
+        title: "Die Erde",
+        text: "Wir pflegen den Boden als lebendigen Organismus, ohne Chemie.",
+      },
+      {
+        title: "Die Rhythmen der Natur",
+        text: "Wir arbeiten im Takt der Jahreszeiten, der Sonne und des Mondes.",
+      },
+      {
+        title: "Das Terroir Moldawiens",
+        text: "Unsere Hügel geben jedem Wein seinen eigenen Charakter.",
+      },
     ],
   },
   cert: {
@@ -105,7 +125,8 @@ const de: Dict = {
     more: "Mehr über unsere Zertifizierungen",
     organic: "Ökologisch zertifiziert",
     since: "Seit dem 5. Dezember 2024",
-    ecoText: "Eine Anerkennung unseres Engagements für einen ökologischen und authentischen Weinbau.",
+    ecoText:
+      "Eine Anerkennung unseres Engagements für einen ökologischen und authentischen Weinbau.",
     ecoLink: "Unsere ECOCERT-Zertifizierung ansehen",
     bdvKicker: "Biodynamische Umstellung",
     bdvStage: "3. Jahr",
@@ -123,7 +144,8 @@ const de: Dict = {
     bdvTitle: "3. Jahr der Umstellung",
     biodyvin:
       "Wir befinden uns im dritten Jahr der Umstellung auf die biodynamische BIODYVIN-Zertifizierung – ein Weg, der unsere Werte und unseren tiefen Respekt vor der Erde und den Rhythmen der Natur widerspiegelt.",
-    bdvSoon: "BIODYVIN-Bescheinigung ansehen – 3. Jahr der biodynamischen Umstellung (PDF)",
+    bdvSoon:
+      "BIODYVIN-Bescheinigung ansehen – 3. Jahr der biodynamischen Umstellung (PDF)",
     chapters: [
       {
         title: ["Warum wir den", "ökologischen Weg gewählt haben"],
@@ -159,17 +181,16 @@ const de: Dict = {
     },
     page: {
       character: "Charakter",
-      style: "Stilistische Klassifizierung",
       profile: "Profil",
       body: "Körper",
-      segment: "Kategorie",
+      segment: "Kollektion",
       bodyScale: ["Leicht", "Mittel", "Vollmundig"],
       ageing: "Reifepotenzial",
       harvest: "Lese",
       bottled: "Abfüllung",
-      window: "Trinkfenster",
+      window: "Optimaler Trinkzeitraum",
       grapes: "Rebsorten",
-      tabs: ["Vinifikation", "Terroir", "Weincharakteristik"],
+      tabs: ["Vinifikation", "Terroir"],
       certification: "Zertifizierung",
       organic: "Ökologischer Weinbau",
       biodynamic: "Biodynamischer Weinbau",
@@ -177,8 +198,7 @@ const de: Dict = {
       pairing: "Speiseempfehlung",
       ingredients: "Zutaten & Nährwertangaben",
       per100: "Nährwerte pro 100 ml",
-      analytics: "Analytische Daten",
-      producer: "Erzeuger",
+      analytics: "Laborparameter",
       responsible: "Verantwortungsvoller Genuss",
       collection: "Die OFRANDA Kollektion",
       open: "Öffnen",
@@ -195,17 +215,32 @@ const de: Dict = {
     humma: {
       summary:
         "HUMMA ist das Geschenk der Erde, das Geheimnis des Anfangs. Aus der Rebe geboren, von der Zeit geformt und im Holz gereift, bewahrt sie in jedem Tropfen eine tiefe Verbindung zwischen Mensch und Mutter Erde.",
-      notes: ["Manuelles Entrappen", "Gärung mit natürlichen / indigenen Hefen", "Gravitationsextraktion · Unfiltriert", "24 Monate Reifung in Holzgefäßen"],
+      notes: [
+        "Manuelles Entrappen",
+        "Gärung mit natürlichen / indigenen Hefen",
+        "Gravitationsextraktion · Unfiltriert",
+        "24 Monate Reifung in Holzgefäßen",
+      ],
     },
     rupt: {
       summary:
         "RUPT — eine unerwartete Begegnung zwischen Kraft und Zartheit. Ein Wein, der Kontrast, Intensität und die Emotion eines Augenblicks in sich trägt und jede Verkostung in ein Erlebnis von tiefem Nachklang verwandelt!",
-      notes: ["Manuelles Entrappen", "Gärung mit natürlichen / indigenen Hefen", "Gravitationsextraktion · Unfiltriert", "24 Monate Reifung in Holzgefäßen"],
+      notes: [
+        "Manuelles Entrappen",
+        "Gärung mit natürlichen / indigenen Hefen",
+        "Gravitationsextraktion · Unfiltriert",
+        "24 Monate Reifung in Holzgefäßen",
+      ],
     },
     "vinul-fara-nume": {
       summary:
         "Nicht jede Geschichte braucht einen Namen. Manche entstehen aus der Erde, wachsen in Stille und offenbaren sich mit der Zeit. Dieser Wein ist eine solche Geschichte — authentisch, tiefgründig und unendlich!",
-      notes: ["Manuelles Entrappen", "Gärung mit natürlichen / indigenen Hefen", "Gravitationsextraktion · Unfiltriert", "24 Monate Reifung in Holzgefäßen"],
+      notes: [
+        "Manuelles Entrappen",
+        "Gärung mit natürlichen / indigenen Hefen",
+        "Gravitationsextraktion · Unfiltriert",
+        "24 Monate Reifung in Holzgefäßen",
+      ],
     },
     "cabernet-sauvignon": {
       summary:
@@ -235,7 +270,6 @@ const de: Dict = {
       vintageNote:
         "Der Jahrgang 2024 spiegelt die klimatischen Bedingungen der Vegetationsperiode, die Reife der Trauben und die sorgfältige Auswahl des Leseguts wider. Jeder Jahrgang trägt die Handschrift eines einzigartigen Jahres, und HUMMA 2024 bringt die Besonderheiten dieser Ernte durch seinen unverwechselbaren Charakter zum Ausdruck.",
       character: {
-        style: "Premium-Rotwein",
         profile: ["Intensiv", "Strukturiert", "Im Holz ausgebaut"],
         body: "Vollmundig",
         segment: "Premium · Boutique",
@@ -247,14 +281,6 @@ const de: Dict = {
         ["Filtration", "Unfiltriert"],
         ["Ausbau", "24 Monate in Holzgebinden"],
       ],
-      characteristics: [
-        ["Weintyp", "Trockener Rotwein"],
-        ["Jahrgang", "2024"],
-        ["Alkoholgehalt", "15,8 % vol."],
-        ["Flaschenvolumen", "750 ml"],
-        ["Flaschenanzahl", "4.415"],
-        ["Losnummer", "L007"],
-      ],
       terroir: [
         ["Herkunft", "Republik Moldau"],
         ["Höhenlage", "190 m"],
@@ -262,16 +288,17 @@ const de: Dict = {
         ["Ertrag", "25 hl/ha"],
         ["Bodenart", ""],
       ],
-      certification: [
-        ["Ökologischer Weinbau", "ECOCERT-zertifiziert · MD-BIO-154"],
-        ["Biodynamischer Weinbau", "In Umstellung · 3. Jahr"],
-      ],
       serving: [
         ["Serviertemperatur", "16–18 °C"],
         ["Empfohlenes Glas", "Großes Rotweinglas mit großzügigem Kelch"],
         ["Dekantieren", "Empfohlen"],
       ],
-      pairing: ["Rindfleisch", "Lamm", "Gegrillte oder gebratene Pilze", "Gereifte Käse"],
+      pairing: [
+        "Rindfleisch",
+        "Lamm",
+        "Gegrillte oder gebratene Pilze",
+        "Gereifte Käse",
+      ],
       ingredients: "Trauben. Enthält Sulfite.",
       so2: ["Gesamtschwefeldioxid", "19 ± 11 mg/l"],
       nutrition: [
@@ -290,11 +317,59 @@ const de: Dict = {
         ["Zuckerfreier Extrakt", "27,9 ± 0,3 g/l"],
         ["Relative Dichte bei 20 °C", "0,9917 ± 0,0002"],
       ],
-      producer: ["CRAMA OFRANDA", "GT „Ștefirța Roman“", "Dumbrăvii-Straße 46", "Stăuceni, Munizip Chișinău", "MD-4839, Republik Moldau"],
-      bottling: [
-        ["Abgefüllt von", "Crama OFRANDA"],
-        ["Abfülldatum", "5. Juni 2026"],
-        ["Los", "L007"],
+    },
+    "vinul-fara-nume": {
+      summary:
+        "Nicht jede Geschichte braucht einen Namen. Manche entstehen aus der Erde, wachsen in Stille und entfalten sich mit der Zeit. Dieser Wein ist eine solche Geschichte – authentisch, tiefgründig und zeitlos.",
+      vintageNote:
+        "Der Jahrgang 2023, geprägt von den pedoklimatischen Bedingungen der Region Stăuceni, bringt den Charakter des lokalen Terroirs zum Ausdruck. Die Reife der Trauben von Fetească Neagră, Cabernet Sauvignon und Rară Neagră bildete die Grundlage für eine Cuvée, die durch Struktur, phenolische Komplexität und einen ausgeprägten Sortenausdruck gekennzeichnet ist und die weinbauliche Identität der Region widerspiegelt.",
+      character: {
+        profile: ["Intens", "Strukturiert", "Im Holz gereift"],
+        body: "Kräftiger Rotwein",
+        segment: "Ausgewählte Selektion",
+      },
+      vinification: [
+        ["Entrappen", "Manuell"],
+        ["Gärung", "Mit autochthonen Hefen"],
+        ["Extraktion", "Durch Schwerkraft"],
+        ["Filtration", "Unfiltriert"],
+        ["Ausbau", "24 Monate in Holzgebinden und 12 Monate in der Flasche"],
+      ],
+      terroir: [
+        ["Herkunft", "Republik Moldau"],
+        ["Höhenlage", "190 m"],
+        ["Exposition", "Südwestlich"],
+        ["Ertrag", "25 hl/ha"],
+        ["Bodentyp", ""],
+      ],
+      serving: [
+        ["Serviertemperatur", "16–18 °C"],
+        ["Empfohlenes Glas", "Rotweinglas mit großem Kelch"],
+        ["Dekantieren", "Empfohlen"],
+      ],
+      pairing: [
+        "Rindfleisch",
+        "Lamm",
+        "Gegrillte oder im Ofen gebackene Pilze",
+        "Gereifte Käsesorten",
+      ],
+      ingredients: "Trauben. OHNE ZUSATZ VON SULFITEN",
+      so2: ["Gesamtschwefeldioxid", "17 mg/L"],
+      nutrition: [
+        ["Energie", "352 kJ / 84 kcal"],
+        ["Kohlenhydrate", "1,3 g"],
+        ["davon Zucker", "1,3 g"],
+      ],
+      analytics: [
+        ["Vorhandener Alkoholgehalt", "14,5 % vol."],
+        ["Gesamtalkoholgehalt", "14,5 % vol."],
+        ["Glucose + Fructose", "1,3 g/L"],
+        ["Titrierbare Säure", "5,5 g/L"],
+        ["Flüchtige Säure", "1,0 g/L"],
+        ["Gesamtschwefeldioxid", "17 mg/L"],
+        ["Gesamttrockenextrakt", "28,7 g/L"],
+        ["Nicht reduzierender Trockenextrakt", "27,4 g/L"],
+        ["Relative Dichte bei 20 °C", "0,9922"],
       ],
     },
   },
@@ -313,16 +388,29 @@ const de: Dict = {
     storyTitle: "Die Geschichte des Weinguts Ofranda",
     more: "OFRANDA überrascht weiterhin...",
     timeline: [
-      { year: "2017", text: "Der Anfang: die Reinigung des Bodens und die ersten Rebpflanzungen." },
+      {
+        year: "2017",
+        text: "Der Anfang: die Reinigung des Bodens und die ersten Rebpflanzungen.",
+      },
       { year: "2022", text: "Die erste Ernte, die zu Wein verarbeitet wurde." },
-      { year: "2023", text: "Beginn des ECOCERT-Zertifizierungsprozesses für biologischen Weinbau und die erste biodynamische Bewertung." },
-      { year: "2023–2025", text: "Jahre voller Ernten, Erfahrungen, Entdeckungen und Lernen." },
-      { year: "2026–2027", text: "Der erste OFRANDA-Wein kommt auf den moldauischen Markt." },
+      {
+        year: "2023",
+        text: "Beginn des ECOCERT-Zertifizierungsprozesses für biologischen Weinbau und die erste biodynamische Bewertung.",
+      },
+      {
+        year: "2023–2025",
+        text: "Jahre voller Ernten, Erfahrungen, Entdeckungen und Lernen.",
+      },
+      {
+        year: "2026–2027",
+        text: "Der erste OFRANDA-Wein kommt auf den moldauischen Markt.",
+      },
     ],
   },
   story: {
     title: "Unsere Geschichte",
-    description: "Die Geschichte des Weinguts Ofranda und der Menschen dahinter, von den ersten Reben 2017 bis zum ersten Wein auf dem moldauischen Markt.",
+    description:
+      "Die Geschichte des Weinguts Ofranda und der Menschen dahinter, von den ersten Reben 2017 bis zum ersten Wein auf dem moldauischen Markt.",
     chronicle: ["Von den ersten Reben", "zur ersten Flasche"],
   },
   land: {
@@ -341,8 +429,15 @@ const de: Dict = {
     eyebrow: "Leben auf dem Weingut",
     title: ["Neuigkeiten", "und Veranstaltungen"],
     pageTitle: "Neuigkeiten und Veranstaltungen",
-    description: "Neuigkeiten, Messen, Verkostungen, Auszeichnungen und Presse vom Weingut Ofranda.",
-    categories: { all: "Alle", winery: "Weingut", certification: "Zertifizierung", events: "Veranstaltungen", press: "Presse" },
+    description:
+      "Neuigkeiten, Messen, Verkostungen, Auszeichnungen und Presse vom Weingut Ofranda.",
+    categories: {
+      all: "Alle",
+      winery: "Weingut",
+      certification: "Zertifizierung",
+      events: "Veranstaltungen",
+      press: "Presse",
+    },
     posts: {
       "harvest-2026-picked-by-hand": {
         title: "Die Lese 2026, von Hand",
@@ -363,7 +458,9 @@ const de: Dict = {
       "evening-tasting-among-the-vines": {
         title: "Ein Verkostungsabend zwischen den Reben",
         text: "Eine offene Verkostung auf dem Weingut, mit den Menschen, die den Wein machen.",
-        body: ["Kommende Verkostungen und Veranstaltungen auf dem Weingut werden hier angekündigt."],
+        body: [
+          "Kommende Verkostungen und Veranstaltungen auf dem Weingut werden hier angekündigt.",
+        ],
       },
       "ofranda-in-the-press": {
         title: "Ofranda in der Presse",
@@ -377,9 +474,13 @@ const de: Dict = {
     docs: {
       "privacy-policy": {
         title: "Datenschutzerklärung",
-        description: "Wie das Weingut Ofranda personenbezogene Daten erhebt, nutzt und schützt.",
+        description:
+          "Wie das Weingut Ofranda personenbezogene Daten erhebt, nutzt und schützt.",
         sections: [
-          { heading: "Wer wir sind", body: ["Diese Website wird betrieben von {controller}"] },
+          {
+            heading: "Wer wir sind",
+            body: ["Diese Website wird betrieben von {controller}"],
+          },
           {
             heading: "Welche Daten wir erheben",
             body: [
@@ -401,13 +502,16 @@ const de: Dict = {
           },
           {
             heading: "Speicherdauer",
-            body: ["Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder das Gesetz es verlangt."],
+            body: [
+              "Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder das Gesetz es verlangt.",
+            ],
           },
         ],
       },
       "cookie-policy": {
         title: "Cookie-Richtlinie",
-        description: "Welche Cookies und ähnlichen Technologien die Ofranda-Website verwendet und wie Sie sie verwalten.",
+        description:
+          "Welche Cookies und ähnlichen Technologien die Ofranda-Website verwendet und wie Sie sie verwalten.",
         sections: [
           {
             heading: "Was wir verwenden",
@@ -437,7 +541,10 @@ const de: Dict = {
         sections: [
           { heading: "Unternehmen", body: ["{legal}", "{idno}"] },
           { heading: "Adresse", body: ["{address}"] },
-          { heading: "Kontakt", body: ["Tel. / WhatsApp: {phone}", "E-Mail: {email}"] },
+          {
+            heading: "Kontakt",
+            body: ["Tel. / WhatsApp: {phone}", "E-Mail: {email}"],
+          },
           {
             heading: "Verantwortungsvoller Genuss",
             body: [

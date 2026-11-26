@@ -7,19 +7,15 @@ export type Pair = [string, string];
 export type WinePage = {
   summary: string;
   vintageNote: string;
-  character: { style: string; profile: string[]; body: string; segment: string };
+  character: { profile: string[]; body: string; segment: string };
   vinification: Pair[];
   terroir: Pair[];
-  characteristics: Pair[];
-  certification: Pair[];
   serving: Pair[];
   pairing: string[];
   ingredients: string;
   so2: Pair;
   nutrition: Pair[];
   analytics: Pair[];
-  producer: string[];
-  bottling: Pair[];
   ageing?: [number, number];
 };
 
@@ -50,16 +46,12 @@ const staticWines = (locale: string): WineView[] => {
             character: page.character,
             vinification: page.vinification as Pair[],
             terroir: page.terroir as Pair[],
-            characteristics: page.characteristics as Pair[],
-            certification: page.certification as Pair[],
             serving: page.serving as Pair[],
             pairing: page.pairing,
             ingredients: page.ingredients,
             so2: page.so2 as Pair,
             nutrition: page.nutrition as Pair[],
             analytics: page.analytics as Pair[],
-            producer: page.producer,
-            bottling: page.bottling as Pair[],
           }
         : undefined,
     };
@@ -82,6 +74,7 @@ type CmsWine = {
   image: Media;
   tint?: string | null;
   organic?: boolean | null;
+  biodynamic?: boolean | null;
   limited?: boolean | null;
   pageLive?: boolean | null;
   formats?: { litres: number; alcohol: number; bottles: number; lot: string }[] | null;
@@ -93,14 +86,11 @@ type CmsWine = {
   notes?: Line[] | null;
   pageSummary?: string | null;
   vintageNote?: string | null;
-  style?: string | null;
   segment?: string | null;
   bodyLabel?: string | null;
   profile?: Line[] | null;
   vinification?: Row[] | null;
   terroir?: Row[] | null;
-  characteristics?: Row[] | null;
-  certification?: Row[] | null;
   serving?: Row[] | null;
   pairing?: Line[] | null;
   ingredients?: string | null;
@@ -108,8 +98,6 @@ type CmsWine = {
   so2Value?: string | null;
   nutrition?: Row[] | null;
   analytics?: Row[] | null;
-  producer?: Line[] | null;
-  bottling?: Row[] | null;
 };
 
 const fromCms = (w: CmsWine): WineView => {
@@ -121,6 +109,7 @@ const fromCms = (w: CmsWine): WineView => {
     vintage: w.vintage,
     grapes: w.grapes,
     organic: Boolean(w.organic),
+    biodynamic: Boolean(w.biodynamic),
     limited: Boolean(w.limited),
     formats,
     image: mediaUrl(w.image),
@@ -134,19 +123,15 @@ const fromCms = (w: CmsWine): WineView => {
       ? {
           summary: w.pageSummary ?? w.summary ?? "",
           vintageNote: w.vintageNote ?? "",
-          character: { style: w.style ?? "", profile: toLines(w.profile), body: w.bodyLabel ?? "", segment: w.segment ?? "" },
+          character: { profile: toLines(w.profile), body: w.bodyLabel ?? "", segment: w.segment ?? "" },
           vinification: toPairs(w.vinification),
           terroir: toPairs(w.terroir),
-          characteristics: toPairs(w.characteristics),
-          certification: toPairs(w.certification),
           serving: toPairs(w.serving),
           pairing: toLines(w.pairing),
           ingredients: w.ingredients ?? "",
           so2: [w.so2Label ?? "", w.so2Value ?? ""],
           nutrition: toPairs(w.nutrition),
           analytics: toPairs(w.analytics),
-          producer: toLines(w.producer),
-          bottling: toPairs(w.bottling),
           ageing: w.ageingFrom && w.ageingTo ? [w.ageingFrom, w.ageingTo] : undefined,
         }
       : undefined,

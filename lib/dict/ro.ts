@@ -59,6 +59,10 @@ const ro: Dict = {
     fab: "Setări de confidențialitate",
   },
   footer: {
+    certs: [
+      ["Vin ecologic", "Certificat ECOCERT · MD-BIO-154"],
+      ["Viticultură biodinamică", "În conversie · Anul 3"],
+    ],
     useful: "Linkuri utile",
     about: "Despre noi",
     certifications: "Certificările noastre",
@@ -72,10 +76,14 @@ const ro: Dict = {
     cookieSettings: "Setări cookie",
   },
   company: {
-    tagline: "Vinuri artizanale certificate ecologic ECOCERT MD-BIO-154 din Republica Moldova.",
+    tagline:
+      "Vinuri artizanale certificate ecologic ECOCERT MD-BIO-154 din Republica Moldova.",
     about:
       "Crama Ofranda este o vinărie de autor din Republica Moldova, dedicată producerii vinurilor artizanale de calitate superioară. Situată în Stăuceni, la doar 11 km de centrul Chișinăului, crama îmbină respectul profund față de natură, viticultura ecologică și o abordare atentă a vinificației.",
-    address: ["Republica Moldova, MD-4839", "Str. Dumbrăvii 46, Stăuceni, mun. Chișinău"],
+    address: [
+      "Republica Moldova, MD-4839",
+      "Str. Dumbrăvii 46, Stăuceni, mun. Chișinău",
+    ],
   },
   hero: {
     eyebrow: ["Crama Ofranda", "Republica Moldova"],
@@ -94,9 +102,18 @@ const ro: Dict = {
     ],
     link: "Descoperă povestea noastră",
     pillars: [
-      { title: "Pământul", text: "Îngrijim solul ca pe un organism viu, fără chimicale." },
-      { title: "Ritmurile naturii", text: "Lucrăm în ritmul anotimpurilor, al soarelui și al lunii." },
-      { title: "Terroir-ul Moldovei", text: "Dealurile noastre dau fiecărui vin propriul caracter." },
+      {
+        title: "Pământul",
+        text: "Îngrijim solul ca pe un organism viu, fără chimicale.",
+      },
+      {
+        title: "Ritmurile naturii",
+        text: "Lucrăm în ritmul anotimpurilor, al soarelui și al lunii.",
+      },
+      {
+        title: "Terroir-ul Moldovei",
+        text: "Dealurile noastre dau fiecărui vin propriul caracter.",
+      },
     ],
   },
   cert: {
@@ -105,7 +122,8 @@ const ro: Dict = {
     more: "Descoperă mai multe despre certificările noastre",
     organic: "Certificat ecologic",
     since: "Din 5 decembrie 2024",
-    ecoText: "O recunoaștere a angajamentului nostru față de viticultura ecologică și autentică.",
+    ecoText:
+      "O recunoaștere a angajamentului nostru față de viticultura ecologică și autentică.",
     ecoLink: "Vezi certificarea noastră ECOCERT",
     bdvKicker: "Conversie biodinamică",
     bdvStage: "Anul 3",
@@ -159,17 +177,16 @@ const ro: Dict = {
     },
     page: {
       character: "Caracter",
-      style: "Clasificare stilistică",
       profile: "Profil",
       body: "Corpolență",
-      segment: "Segment",
+      segment: "Colecție",
       bodyScale: ["Ușor", "Mediu", "Corpulent"],
       ageing: "Potențial de maturare",
       harvest: "Recolta",
       bottled: "Îmbuteliere",
-      window: "Fereastra de consum",
+      window: "Perioada optimă de consum",
       grapes: "Soiuri",
-      tabs: ["Vinificație", "Terroir", "Caracteristici"],
+      tabs: ["Vinificație", "Terroir"],
       certification: "Certificare",
       organic: "Vin ecologic",
       biodynamic: "Viticultură biodinamică",
@@ -177,8 +194,7 @@ const ro: Dict = {
       pairing: "Asociere culinară",
       ingredients: "Ingrediente și valori nutriționale",
       per100: "Valori nutriționale per 100 ml",
-      analytics: "Date analitice",
-      producer: "Producător",
+      analytics: "Parametri de laborator",
       responsible: "Consum responsabil",
       collection: "Colecția OFRANDA",
       open: "Deschide",
@@ -195,17 +211,32 @@ const ro: Dict = {
     humma: {
       summary:
         "HUMMA este darul pământului, taina începutului. Născută din vie, modelată de timp și maturată în lemn, păstrează în fiecare picătură legătura profundă dintre om și Pământul Mamă.",
-      notes: ["Desciorchinare manuală", "Fermentare pe drojdii indigene / naturale", "Extras gravitațional · Nefiltrat", "Maturare 24 luni în vase de lemn"],
+      notes: [
+        "Desciorchinare manuală",
+        "Fermentare pe drojdii indigene / naturale",
+        "Extras gravitațional · Nefiltrat",
+        "Maturare 24 luni în vase de lemn",
+      ],
     },
     rupt: {
       summary:
         "RUPT — o întâlnire neașteptată între forță și delicatețe. Un vin care poartă în sine contrastul, intensitatea și emoția unei clipe, transformând fiecare degustare într-o experiență cu rezonanțe profunde!",
-      notes: ["Desciorchinare manuală", "Fermentare pe drojdii indigene / naturale", "Extras gravitațional · Nefiltrat", "Maturare 24 luni în vase de lemn"],
+      notes: [
+        "Desciorchinare manuală",
+        "Fermentare pe drojdii indigene / naturale",
+        "Extras gravitațional · Nefiltrat",
+        "Maturare 24 luni în vase de lemn",
+      ],
     },
     "vinul-fara-nume": {
       summary:
         "Nu toate poveștile au nevoie de un nume. Unele se nasc din pământ, cresc în tăcere și se dezvăluie în timp. Acest vin este o astfel de poveste — autentică, profundă și fără sfârșit!",
-      notes: ["Desciorchinare manuală", "Fermentare pe drojdii indigene / naturale", "Extras gravitațional · Nefiltrat", "Maturare 24 luni în vase de lemn"],
+      notes: [
+        "Desciorchinare manuală",
+        "Fermentare pe drojdii indigene / naturale",
+        "Extras gravitațional · Nefiltrat",
+        "Maturare 24 luni în vase de lemn",
+      ],
     },
     "cabernet-sauvignon": {
       summary:
@@ -235,7 +266,6 @@ const ro: Dict = {
       vintageNote:
         "Recolta anului 2024 reflectă condițiile climatice ale sezonului, maturitatea strugurilor și selecția atentă a materiei prime. Fiecare vintage poartă amprenta unui an distinct, iar HUMMA 2024 exprimă particularitățile acestei recolte prin caracterul său unic.",
       character: {
-        style: "Vin roșu premium",
         profile: ["Intens", "Structurat", "Maturat"],
         body: "Vin corpulent",
         segment: "Premium · Boutique",
@@ -247,14 +277,6 @@ const ro: Dict = {
         ["Filtrare", "Nefiltrat"],
         ["Maturare", "24 de luni în vase de lemn"],
       ],
-      characteristics: [
-        ["Tip vin", "Vin roșu sec"],
-        ["An", "2024"],
-        ["Alcool", "15,8% vol."],
-        ["Volum", "750 ml"],
-        ["Număr de sticle", "4.415"],
-        ["Lot", "L007"],
-      ],
       terroir: [
         ["Origine", "Republica Moldova"],
         ["Altitudine", "190 m"],
@@ -262,16 +284,17 @@ const ro: Dict = {
         ["Randament", "25 hl/hectar"],
         ["Tip sol", ""],
       ],
-      certification: [
-        ["Vin ecologic", "Certificat ECOCERT · MD-BIO-154"],
-        ["Viticultură biodinamică", "În conversie · Anul 3"],
-      ],
       serving: [
         ["Temperatura de servire", "16–18 °C"],
         ["Pahar recomandat", "Pahar cu cupă generoasă pentru vin roșu"],
         ["Decantare", "Recomandată"],
       ],
-      pairing: ["Carne de vită", "Miel", "Ciuperci la grătar sau la cuptor", "Brânzeturi maturate"],
+      pairing: [
+        "Carne de vită",
+        "Miel",
+        "Ciuperci la grătar sau la cuptor",
+        "Brânzeturi maturate",
+      ],
       ingredients: "Struguri. Conține sulfiți.",
       so2: ["Dioxid de sulf total", "19 ± 11 mg/L"],
       nutrition: [
@@ -290,11 +313,59 @@ const ro: Dict = {
         ["Extract sec nereducător", "27,9 ± 0,3 g/L"],
         ["Densitate relativă la 20 °C", "0,9917 ± 0,0002"],
       ],
-      producer: ["CRAMA OFRANDA", "GT „Ștefirța Roman”", "Str. Dumbrăvii 46", "Stăuceni, mun. Chișinău", "MD-4839, Republica Moldova"],
-      bottling: [
-        ["Îmbuteliat de", "Crama OFRANDA"],
-        ["Data îmbutelierii", "5 iunie 2026"],
-        ["Lot", "L007"],
+    },
+    "vinul-fara-nume": {
+      summary:
+        "Nu toate poveștile au nevoie de un nume. Unele se nasc din pământ, cresc în tăcere și se dezvăluie în timp. Acest vin este o astfel de poveste — autentică, profundă și fără sfârșit!",
+      vintageNote:
+        "Recolta anului 2023, modelată de condițiile pedoclimatice ale zonei Stăuceni, exprimă caracterul terroir-ului local. Maturitatea strugurilor de Fetească Neagră și Cabernet Sauvignon a oferit premisele unui asamblaj cu structură, complexitate fenolică și expresie varietală distinctă, reflectând identitatea viticolă a regiunii.",
+      character: {
+        profile: ["Intens", "Structurat", "Maturat"],
+        body: "Vin corpulent",
+        segment: "Selecție Distinctă",
+      },
+      vinification: [
+        ["Desciorchinare", "Manuală"],
+        ["Fermentare", "Pe drojdii indigene"],
+        ["Extracție", "Gravitațională"],
+        ["Filtrare", "Nefiltrat"],
+        ["Maturare", "24 de luni în vase de lemn și 12 luni în sticlă"],
+      ],
+      terroir: [
+        ["Origine", "Republica Moldova"],
+        ["Altitudine", "190 m"],
+        ["Expunere", "Sud-vestică"],
+        ["Randament", "25 hl/hectar"],
+        ["Tip sol", ""],
+      ],
+      serving: [
+        ["Temperatura de servire", "16–18 °C"],
+        ["Pahar recomandat", "Cupă amplă pentru vin roșu"],
+        ["Decantare", "Recomandată"],
+      ],
+      pairing: [
+        "Carne de vită",
+        "Miel",
+        "Ciuperci preparate la grătar sau cuptor",
+        "Brânzeturi maturate",
+      ],
+      ingredients: "Struguri. FĂRĂ SULFIȚI ADĂUGAȚI",
+      so2: ["Dioxid de sulf total", "17 mg/L"],
+      nutrition: [
+        ["Valoare energetică", "352 kJ / 84 kcal"],
+        ["Carbohidrați", "1,3 g"],
+        ["din care zaharuri", "1,3 g"],
+      ],
+      analytics: [
+        ["Alcool etilic", "14,5 % vol."],
+        ["Alcool etilic total", "14,5 % vol."],
+        ["Glucoză + fructoză", "1,3 g/L"],
+        ["Aciditate titrabilă", "5,5 g/L"],
+        ["Aciditate volatilă", "1,0 g/L"],
+        ["Dioxid de sulf total", "17 mg/L"],
+        ["Extract sec total", "28,7 g/L"],
+        ["Extract sec nereducător", "27,4 g/L"],
+        ["Densitate relativă la 20 °C", "0,9922"],
       ],
     },
   },
@@ -304,7 +375,8 @@ const ro: Dict = {
     text: "În spatele fiecărui vin OFRANDA se află oameni, experiență și o legătură profundă cu pământul. Un vinificator care și-a dedicat ani întregi artei vinului și oameni ai locului, care cunosc aceste dealuri, ritmurile naturii și fiecare anotimp al viței-de-vie.",
     text2:
       "De la îngrijirea viilor până la recoltarea strugurilor, fiecare gest este făcut cu răbdare, atenție și respect pentru ceea ce ne oferă Pământul. Pentru noi, vinul începe cu mult înainte de a ajunge în cramă — începe în vie, în mâinile oamenilor și în grija pentru fiecare detaliu.",
-    quote: "Nu noi facem vinul. Îl însoțim în călătoria sa, de la pământ până în sticlă, încercând să-i păstrăm autenticitatea și sufletul.",
+    quote:
+      "Nu noi facem vinul. Îl însoțim în călătoria sa, de la pământ până în sticlă, încercând să-i păstrăm autenticitatea și sufletul.",
     owner: "Roman Stefirta",
     role: "Proprietar",
     link: "Descoperă povestea noastră",
@@ -312,16 +384,29 @@ const ro: Dict = {
     storyTitle: "Povestea Cramei Ofranda",
     more: "OFRANDA continuă să uimească...",
     timeline: [
-      { year: "2017", text: "Începutul: curățarea solului și primele plantări." },
+      {
+        year: "2017",
+        text: "Începutul: curățarea solului și primele plantări.",
+      },
       { year: "2022", text: "Prima recoltă transformată în vin." },
-      { year: "2023", text: "Începutul procesului de certificare ecologică ECOCERT și prima evaluare biodinamică." },
-      { year: "2023–2025", text: "Anii de recolte, experiențe, descoperiri și învățare." },
-      { year: "2026–2027", text: "Primul vin OFRANDA ajunge pe piața Moldovei." },
+      {
+        year: "2023",
+        text: "Începutul procesului de certificare ecologică ECOCERT și prima evaluare biodinamică.",
+      },
+      {
+        year: "2023–2025",
+        text: "Anii de recolte, experiențe, descoperiri și învățare.",
+      },
+      {
+        year: "2026–2027",
+        text: "Primul vin OFRANDA ajunge pe piața Moldovei.",
+      },
     ],
   },
   story: {
     title: "Povestea noastră",
-    description: "Istoria Cramei Ofranda și a oamenilor din spatele ei, de la primele vițe plantate în 2017 până la primul vin pe piața Moldovei.",
+    description:
+      "Istoria Cramei Ofranda și a oamenilor din spatele ei, de la primele vițe plantate în 2017 până la primul vin pe piața Moldovei.",
     chronicle: ["De la primele vițe", "la prima sticlă"],
   },
   land: {
@@ -340,8 +425,15 @@ const ro: Dict = {
     eyebrow: "Viața la cramă",
     title: ["Noutăți", "și evenimente"],
     pageTitle: "Noutăți și evenimente",
-    description: "Noutăți, expoziții, degustări, premii și presă de la Crama Ofranda.",
-    categories: { all: "Toate", winery: "Crama", certification: "Certificare", events: "Evenimente", press: "Presă" },
+    description:
+      "Noutăți, expoziții, degustări, premii și presă de la Crama Ofranda.",
+    categories: {
+      all: "Toate",
+      winery: "Crama",
+      certification: "Certificare",
+      events: "Evenimente",
+      press: "Presă",
+    },
     posts: {
       "harvest-2026-picked-by-hand": {
         title: "Recolta 2026, culeasă manual",
@@ -362,7 +454,9 @@ const ro: Dict = {
       "evening-tasting-among-the-vines": {
         title: "O seară de degustare printre vițe",
         text: "O degustare deschisă la cramă, alături de oamenii care fac vinul.",
-        body: ["Detaliile despre degustările și evenimentele viitoare de la cramă vor fi anunțate aici."],
+        body: [
+          "Detaliile despre degustările și evenimentele viitoare de la cramă vor fi anunțate aici.",
+        ],
       },
       "ofranda-in-the-press": {
         title: "Ofranda în presă",
@@ -376,9 +470,13 @@ const ro: Dict = {
     docs: {
       "privacy-policy": {
         title: "Politica de confidențialitate",
-        description: "Cum colectează, folosește și protejează Crama Ofranda datele personale.",
+        description:
+          "Cum colectează, folosește și protejează Crama Ofranda datele personale.",
         sections: [
-          { heading: "Cine suntem", body: ["Acest site este administrat de {controller}"] },
+          {
+            heading: "Cine suntem",
+            body: ["Acest site este administrat de {controller}"],
+          },
           {
             heading: "Ce date colectăm",
             body: [
@@ -400,13 +498,16 @@ const ro: Dict = {
           },
           {
             heading: "Cât timp le păstrăm",
-            body: ["Păstrăm datele personale doar atât cât este necesar scopului pentru care au fost colectate sau cât impune legea."],
+            body: [
+              "Păstrăm datele personale doar atât cât este necesar scopului pentru care au fost colectate sau cât impune legea.",
+            ],
           },
         ],
       },
       "cookie-policy": {
         title: "Politica cookie",
-        description: "Ce cookie-uri și tehnologii similare folosește site-ul Ofranda și cum le poți gestiona.",
+        description:
+          "Ce cookie-uri și tehnologii similare folosește site-ul Ofranda și cum le poți gestiona.",
         sections: [
           {
             heading: "Ce folosim",
@@ -436,10 +537,15 @@ const ro: Dict = {
         sections: [
           { heading: "Compania", body: ["{legal}", "{idno}"] },
           { heading: "Adresa", body: ["{address}"] },
-          { heading: "Contact", body: ["Tel. / WhatsApp: {phone}", "Email: {email}"] },
+          {
+            heading: "Contact",
+            body: ["Tel. / WhatsApp: {phone}", "Email: {email}"],
+          },
           {
             heading: "Consum responsabil",
-            body: ["Acest site conține informații despre vin și se adresează persoanelor care au vârsta legală pentru consumul de alcool în țara lor."],
+            body: [
+              "Acest site conține informații despre vin și se adresează persoanelor care au vârsta legală pentru consumul de alcool în țara lor.",
+            ],
           },
         ],
       },

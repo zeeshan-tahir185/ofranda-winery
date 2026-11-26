@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 const vinIcons = ["vinification", "fermentation", "extraction", "filtration", "ageing"];
 const terroirIcons = ["origin", "altitude", "exposure", "yield", "soil"];
-const charIcons = ["glass", "calendar", "percent", "volume", "bottles", "lot"];
 const servingIcons = ["temperature", "glass", "decant"];
 
 export default async function WinePage({ params }: Params) {
@@ -77,7 +76,6 @@ export default async function WinePage({ params }: Params) {
   const tabs: DossierTab[] = [
     { title: p.tabs[0], rows: rows(page.vinification, vinIcons) },
     { title: p.tabs[1], rows: rows(page.terroir, terroirIcons) },
-    { title: p.tabs[2], rows: rows(page.characteristics, charIcons) },
   ];
 
   const facts = [
@@ -99,7 +97,7 @@ export default async function WinePage({ params }: Params) {
           image: wine.image.startsWith("http") ? wine.image : `${site.url}${wine.image}`,
           brand: { "@type": "Brand", name: site.name },
           category: "Wine",
-          additionalProperty: [...page.characteristics, ...page.vinification]
+          additionalProperty: [...facts.map((f) => [f.label, f.value]), ...page.vinification]
             .filter(([, v]) => v)
             .map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
         }}
@@ -113,7 +111,7 @@ export default async function WinePage({ params }: Params) {
             <Breadcrumbs light locale={locale} items={[{ label: d.nav.wines, href: `/${locale}#wines` }, { label: wine.name }]} />
           </div>
 
-          <h1 className="vp__name" style={{ ["--fs" as string]: `${Math.min(17, 70 / (longest * 0.74)).toFixed(2)}vw` }}>
+          <h1 className="vp__name" style={{ ["--fs" as string]: `${Math.min(17, 70 / (longest * 0.74)).toFixed(2)}vw`, ["--lines" as string]: lines.length }}>
             {lines.map((l, i) => (
               <span key={l} className="vp__line">
                 <span style={{ animationDelay: `${0.15 + i * 0.1}s` }}>{l}</span>
@@ -128,10 +126,12 @@ export default async function WinePage({ params }: Params) {
             <p className="vp__age-title">{p.ageing}</p>
             <div className="vp__age-scale">
               <span className={`vp__age-window ${ageing ? "is-set" : ""}`} style={windowStyle}>
-                <span className="vp__age-note">
-                  <span>{p.window}</span>
-                  <b>{ageing ? `${ageing[0]}–${ageing[1]}` : t.tbc}</b>
-                </span>
+                {ageing && (
+                  <span className="vp__age-note">
+                    <span>{p.window}</span>
+                    <b>{`${ageing[0]}–${ageing[1]}`}</b>
+                  </span>
+                )}
               </span>
               <ol>
                 {years
@@ -160,10 +160,6 @@ export default async function WinePage({ params }: Params) {
           <div className="vp__character">
             <p className="vp__label">{p.character}</p>
             <dl>
-              <div>
-                <dt>{p.style}</dt>
-                <dd>{page.character.style}</dd>
-              </div>
               <div>
                 <dt>{p.profile}</dt>
                 <dd className="vp__profile">
@@ -201,9 +197,10 @@ export default async function WinePage({ params }: Params) {
                 </span>
               </li>
             ))}
-            {wine.organic && (
+            {(wine.organic || wine.biodynamic) && (
               <li className="vp__leaf">
-                <EuLeaf code={certificates.ecocert.code} />
+                {wine.biodynamic && <BiodyvinMark className="vp__bdv" />}
+                {wine.organic && <EuLeaf code={certificates.ecocert.code} />}
               </li>
             )}
           </ul>
@@ -273,48 +270,10 @@ export default async function WinePage({ params }: Params) {
                 ))}
               </dl>
             </details>
-            <details name="vp-acc">
-              <summary>
-                <span>{p.producer}</span>
-              </summary>
-              <address className="vp-acc__address">
-                {page.producer.map((l) => (
-                  <span key={l}>{l}</span>
-                ))}
-              </address>
-              <dl className="vp-acc__table">
-                {page.bottling.map(([label, value]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </details>
           </div>
 
           <div className="vp-seal">
-            <p className="vp__label">{p.certification}</p>
-            <div className="vp-seal__marks">
-              {wine.organic && (
-                <div className="vp-seal__mark">
-                  <EuLeaf className="vp-seal__leaf" />
-                  <span>
-                    {page.certification[0][0]}
-                    <b>{page.certification[0][1]}</b>
-                  </span>
-                </div>
-              )}
-              <div className="vp-seal__mark">
-                <BiodyvinMark className="vp-seal__bdv" />
-                <span>
-                  {page.certification[1][0]}
-                  <b>{page.certification[1][1]}</b>
-                </span>
-              </div>
-            </div>
-
-            <p className="vp__label vp-seal__gap">{p.responsible}</p>
+            <p className="vp__label">{p.responsible}</p>
             <ul className="vp-seal__warn">
               {t.warnings.map((w, i) => (
                 <li key={w}>

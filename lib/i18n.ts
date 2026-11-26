@@ -18,7 +18,11 @@ export const alternates = (locale: string, path = "") => ({
   languages: Object.fromEntries([...locales.map((l) => [l, `/${l}${path}`]), ["x-default", `/en${path}`]]),
 });
 
-export const formatNumber = (locale: string, value: number) => new Intl.NumberFormat(locale).format(value);
+export const formatNumber = (locale: string, value: number) =>
+  new Intl.NumberFormat(locale)
+    .formatToParts(value)
+    .map((p) => (p.type === "group" ? " " : p.value))
+    .join("");
 
 export const formatLitres = (locale: string, litres: number) => `${new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 2 }).format(litres)} L`;
 

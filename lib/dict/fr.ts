@@ -36,7 +36,10 @@ const fr: Dict = {
     breadcrumb: "Fil d’Ariane",
   },
   gate: {
-    title: ["Avez-vous l’âge légal pour consommer de l’alcool", "dans votre pays ?"],
+    title: [
+      "Avez-vous l’âge légal pour consommer de l’alcool",
+      "dans votre pays ?",
+    ],
     text: "Veuillez confirmer que vous avez l’âge minimum légal requis dans votre pays pour accéder à ce site, qui contient des informations sur le vin et les boissons alcoolisées.",
     yes: "Oui",
     no: "Non",
@@ -59,6 +62,10 @@ const fr: Dict = {
     fab: "Paramètres de confidentialité",
   },
   footer: {
+    certs: [
+      ["Vin biologique", "Certifié ECOCERT · MD-BIO-154"],
+      ["Viticulture biodynamique", "En conversion · 3e année"],
+    ],
     useful: "Liens utiles",
     about: "À propos",
     certifications: "Nos certifications",
@@ -72,10 +79,14 @@ const fr: Dict = {
     cookieSettings: "Paramètres des cookies",
   },
   company: {
-    tagline: "Vins artisanaux certifiés biologiques par ECOCERT MD-BIO-154 de la République de Moldavie.",
+    tagline:
+      "Vins artisanaux certifiés biologiques par ECOCERT MD-BIO-154 de la République de Moldavie.",
     about:
       "Le Domaine Ofranda est un domaine viticole artisanal de la République de Moldavie, dédié à la production de vins de grande qualité. Situé à Stăuceni, à seulement 11 km du centre de Chișinău, le domaine associe un profond respect de la nature, la viticulture biologique et une approche attentive de la vinification.",
-    address: ["République de Moldavie, MD-4839", "46, rue Dumbrăvii, Stăuceni, municipalité de Chișinău"],
+    address: [
+      "République de Moldavie, MD-4839",
+      "46, rue Dumbrăvii, Stăuceni, municipalité de Chișinău",
+    ],
   },
   hero: {
     eyebrow: ["Domaine Ofranda", "République de Moldavie"],
@@ -94,9 +105,18 @@ const fr: Dict = {
     ],
     link: "Découvrez notre histoire",
     pillars: [
-      { title: "La Terre", text: "Nous prenons soin du sol comme d’un être vivant, sans produits chimiques." },
-      { title: "Les rythmes de la nature", text: "Nous travaillons au rythme des saisons, du soleil et de la lune." },
-      { title: "Le terroir de Moldavie", text: "Nos collines donnent à chaque vin son propre caractère." },
+      {
+        title: "La Terre",
+        text: "Nous prenons soin du sol comme d’un être vivant, sans produits chimiques.",
+      },
+      {
+        title: "Les rythmes de la nature",
+        text: "Nous travaillons au rythme des saisons, du soleil et de la lune.",
+      },
+      {
+        title: "Le terroir de Moldavie",
+        text: "Nos collines donnent à chaque vin son propre caractère.",
+      },
     ],
   },
   cert: {
@@ -105,7 +125,8 @@ const fr: Dict = {
     more: "En savoir plus sur nos certifications",
     organic: "Certifié biologique",
     since: "Depuis le 5 décembre 2024",
-    ecoText: "Une reconnaissance de notre engagement en faveur d’une viticulture biologique et authentique.",
+    ecoText:
+      "Une reconnaissance de notre engagement en faveur d’une viticulture biologique et authentique.",
     ecoLink: "Voir notre certification ECOCERT",
     bdvKicker: "Conversion biodynamique",
     bdvStage: "3ᵉ année",
@@ -123,7 +144,8 @@ const fr: Dict = {
     bdvTitle: "3ᵉ année de conversion",
     biodyvin:
       "Nous sommes dans notre troisième année de conversion vers la certification biodynamique BIODYVIN, un parcours qui reflète nos valeurs et notre profond respect pour la Terre et les rythmes de la nature.",
-    bdvSoon: "Voir notre attestation BIODYVIN – 3ᵉ année de conversion biodynamique (PDF)",
+    bdvSoon:
+      "Voir notre attestation BIODYVIN – 3ᵉ année de conversion biodynamique (PDF)",
     chapters: [
       {
         title: ["Pourquoi nous avons choisi", "la voie écologique"],
@@ -159,17 +181,16 @@ const fr: Dict = {
     },
     page: {
       character: "Caractère",
-      style: "Classification stylistique",
       profile: "Profil",
       body: "Corps",
-      segment: "Catégorie",
+      segment: "Collection",
       bodyScale: ["Léger", "Moyen", "Corsé"],
       ageing: "Potentiel de garde",
       harvest: "Vendange",
       bottled: "Mise en bouteille",
-      window: "Fenêtre de dégustation",
+      window: "Période optimale de dégustation",
       grapes: "Cépages",
-      tabs: ["Vinification", "Terroir", "Caractéristiques"],
+      tabs: ["Vinification", "Terroir"],
       certification: "Certification",
       organic: "Vin biologique",
       biodynamic: "Viticulture biodynamique",
@@ -177,8 +198,7 @@ const fr: Dict = {
       pairing: "Accords gastronomiques",
       ingredients: "Ingrédients & informations nutritionnelles",
       per100: "Valeurs nutritionnelles pour 100 ml",
-      analytics: "Données analytiques",
-      producer: "Producteur",
+      analytics: "Paramètres de laboratoire",
       responsible: "Consommation responsable",
       collection: "La collection OFRANDA",
       open: "Ouvrir",
@@ -250,7 +270,6 @@ const fr: Dict = {
       vintageNote:
         "Le millésime 2024 reflète les conditions climatiques de la saison, la maturité des raisins et la sélection rigoureuse de la matière première. Chaque millésime porte l'empreinte d'une année distincte, et HUMMA 2024 exprime les particularités de cette récolte à travers son caractère unique.",
       character: {
-        style: "Vin rouge premium",
         profile: ["Intense", "Structuré", "Élevé en fût"],
         body: "Vin corsé",
         segment: "Premium · Boutique",
@@ -262,14 +281,6 @@ const fr: Dict = {
         ["Filtration", "Non filtré"],
         ["Élevage", "24 mois en contenants de bois"],
       ],
-      characteristics: [
-        ["Type de vin", "Vin rouge sec"],
-        ["Millésime", "2024"],
-        ["Alcool", "15,8 % vol."],
-        ["Volume", "750 ml"],
-        ["Nombre de bouteilles", "4 415"],
-        ["Lot", "L007"],
-      ],
       terroir: [
         ["Origine", "République de Moldova"],
         ["Altitude", "190 m"],
@@ -277,16 +288,17 @@ const fr: Dict = {
         ["Rendement", "25 hl/hectare"],
         ["Type de sol", ""],
       ],
-      certification: [
-        ["Vin biologique", "Certifié ECOCERT · MD-BIO-154"],
-        ["Viticulture biodynamique", "En conversion · 3e année"],
-      ],
       serving: [
         ["Température de service", "16–18 °C"],
         ["Verre recommandé", "Verre à vin rouge à large calice"],
         ["Décantation", "Recommandée"],
       ],
-      pairing: ["Bœuf", "Agneau", "Champignons grillés ou rôtis", "Fromages affinés"],
+      pairing: [
+        "Bœuf",
+        "Agneau",
+        "Champignons grillés ou rôtis",
+        "Fromages affinés",
+      ],
       ingredients: "Raisins. Contient des sulfites.",
       so2: ["Dioxyde de soufre total", "19 ± 11 mg/L"],
       nutrition: [
@@ -305,11 +317,59 @@ const fr: Dict = {
         ["Extrait sec non réducteur", "27,9 ± 0,3 g/L"],
         ["Densité relative à 20 °C", "0,9917 ± 0,0002"],
       ],
-      producer: ["CRAMA OFRANDA", "GT „Ștefirța Roman”", "46, rue Dumbrăvii", "Stăuceni, municipalité de Chișinău", "MD-4839, République de Moldova"],
-      bottling: [
-        ["Mis en bouteille par", "Crama OFRANDA"],
-        ["Date de mise en bouteille", "5 juin 2026"],
-        ["Lot", "L007"],
+    },
+    "vinul-fara-nume": {
+      summary:
+        "Toutes les histoires n’ont pas besoin d’un nom. Certaines naissent de la terre, grandissent dans le silence et se révèlent avec le temps. Ce vin est une telle histoire — authentique, profonde et intemporelle.",
+      vintageNote:
+        "Le millésime 2023, façonné par les conditions pédoclimatiques de la région de Stăuceni, exprime le caractère du terroir local. La maturité des raisins de Fetească Neagră, de Cabernet Sauvignon et de Rară Neagră a constitué la base d’un assemblage caractérisé par sa structure, sa complexité phénolique et son expression variétale distinctive, reflétant l’identité viticole de la région.",
+      character: {
+        profile: ["Intense", "Structuré", "Élevé en fût de bois"],
+        body: "Vin corsé",
+        segment: "Sélection distinctive",
+      },
+      vinification: [
+        ["Égrappage", "Manuel"],
+        ["Fermentation", "Avec des levures indigènes"],
+        ["Extraction", "Par gravité"],
+        ["Filtration", "Non filtré"],
+        ["Élevage", "24 mois en contenants en bois et 12 mois en bouteille"],
+      ],
+      terroir: [
+        ["Origine", "République de Moldavie"],
+        ["Altitude", "190 m"],
+        ["Exposition", "Sud-ouest"],
+        ["Rendement", "25 hl/ha"],
+        ["Type de sol", ""],
+      ],
+      serving: [
+        ["Température de service", "16–18 °C"],
+        ["Verre recommandé", "Verre à vin rouge à large calice"],
+        ["Décantation", "Recommandée"],
+      ],
+      pairing: [
+        "Bœuf",
+        "Agneau",
+        "Champignons grillés ou rôtis au four",
+        "Fromages affinés",
+      ],
+      ingredients: "Raisins. SANS SULFITES AJOUTÉS",
+      so2: ["Dioxyde de soufre total", "17 mg/L"],
+      nutrition: [
+        ["Valeur énergétique", "352 kJ / 84 kcal"],
+        ["Glucides", "1,3 g"],
+        ["dont sucres", "1,3 g"],
+      ],
+      analytics: [
+        ["Titre alcoométrique volumique acquis", "14,5 % vol."],
+        ["Titre alcoométrique volumique total", "14,5 % vol."],
+        ["Glucose + fructose", "1,3 g/L"],
+        ["Acidité totale", "5,5 g/L"],
+        ["Acidité volatile", "1,0 g/L"],
+        ["Dioxyde de soufre total", "17 mg/L"],
+        ["Extrait sec total", "28,7 g/L"],
+        ["Extrait sec non réducteur", "27,4 g/L"],
+        ["Masse volumique relative à 20 °C", "0,9922"],
       ],
     },
   },
@@ -328,16 +388,29 @@ const fr: Dict = {
     storyTitle: "L’histoire du Domaine Ofranda",
     more: "OFRANDA continue de surprendre...",
     timeline: [
-      { year: "2017", text: "Le début : le nettoyage des terres et les premières plantations de vignes." },
+      {
+        year: "2017",
+        text: "Le début : le nettoyage des terres et les premières plantations de vignes.",
+      },
       { year: "2022", text: "La première récolte transformée en vin." },
-      { year: "2023", text: "Le début du processus de certification biologique ECOCERT et la première évaluation en biodynamie." },
-      { year: "2023–2025", text: "Des années de récoltes, d’expériences, de découvertes et d’apprentissage." },
-      { year: "2026–2027", text: "Le premier vin OFRANDA arrive sur le marché moldave." },
+      {
+        year: "2023",
+        text: "Le début du processus de certification biologique ECOCERT et la première évaluation en biodynamie.",
+      },
+      {
+        year: "2023–2025",
+        text: "Des années de récoltes, d’expériences, de découvertes et d’apprentissage.",
+      },
+      {
+        year: "2026–2027",
+        text: "Le premier vin OFRANDA arrive sur le marché moldave.",
+      },
     ],
   },
   story: {
     title: "Notre histoire",
-    description: "L’histoire du Domaine Ofranda et des personnes qui le font vivre, des premières vignes en 2017 au premier vin sur le marché moldave.",
+    description:
+      "L’histoire du Domaine Ofranda et des personnes qui le font vivre, des premières vignes en 2017 au premier vin sur le marché moldave.",
     chronicle: ["Des premières vignes", "à la première bouteille"],
   },
   land: {
@@ -356,8 +429,15 @@ const fr: Dict = {
     eyebrow: "La vie au domaine",
     title: ["Actualités", "et événements"],
     pageTitle: "Actualités et événements",
-    description: "Actualités, salons, dégustations, distinctions et presse du Domaine Ofranda.",
-    categories: { all: "Tout", winery: "Domaine", certification: "Certification", events: "Événements", press: "Presse" },
+    description:
+      "Actualités, salons, dégustations, distinctions et presse du Domaine Ofranda.",
+    categories: {
+      all: "Tout",
+      winery: "Domaine",
+      certification: "Certification",
+      events: "Événements",
+      press: "Presse",
+    },
     posts: {
       "harvest-2026-picked-by-hand": {
         title: "Les vendanges 2026, à la main",
@@ -378,12 +458,16 @@ const fr: Dict = {
       "evening-tasting-among-the-vines": {
         title: "Une soirée de dégustation dans les vignes",
         text: "Une dégustation ouverte au domaine, avec ceux qui font le vin.",
-        body: ["Les prochaines dégustations et événements au domaine seront annoncés ici."],
+        body: [
+          "Les prochaines dégustations et événements au domaine seront annoncés ici.",
+        ],
       },
       "ofranda-in-the-press": {
         title: "Ofranda dans la presse",
         text: "Ce que les journalistes et les critiques ont écrit sur nos premiers pas.",
-        body: ["Les articles de presse consacrés à OFRANDA seront rassemblés ici."],
+        body: [
+          "Les articles de presse consacrés à OFRANDA seront rassemblés ici.",
+        ],
       },
     },
   },
@@ -392,9 +476,13 @@ const fr: Dict = {
     docs: {
       "privacy-policy": {
         title: "Politique de confidentialité",
-        description: "Comment le Domaine Ofranda collecte, utilise et protège les données personnelles.",
+        description:
+          "Comment le Domaine Ofranda collecte, utilise et protège les données personnelles.",
         sections: [
-          { heading: "Qui sommes-nous", body: ["Ce site est édité par {controller}"] },
+          {
+            heading: "Qui sommes-nous",
+            body: ["Ce site est édité par {controller}"],
+          },
           {
             heading: "Données collectées",
             body: [
@@ -424,7 +512,8 @@ const fr: Dict = {
       },
       "cookie-policy": {
         title: "Politique relative aux cookies",
-        description: "Les cookies et technologies similaires utilisés par le site Ofranda et comment les gérer.",
+        description:
+          "Les cookies et technologies similaires utilisés par le site Ofranda et comment les gérer.",
         sections: [
           {
             heading: "Ce que nous utilisons",
@@ -454,10 +543,15 @@ const fr: Dict = {
         sections: [
           { heading: "Société", body: ["{legal}", "{idno}"] },
           { heading: "Adresse", body: ["{address}"] },
-          { heading: "Contact", body: ["Tél. / WhatsApp : {phone}", "E-mail : {email}"] },
+          {
+            heading: "Contact",
+            body: ["Tél. / WhatsApp : {phone}", "E-mail : {email}"],
+          },
           {
             heading: "Consommation responsable",
-            body: ["Ce site contient des informations sur le vin et s’adresse aux personnes ayant l’âge légal pour consommer de l’alcool dans leur pays."],
+            body: [
+              "Ce site contient des informations sur le vin et s’adresse aux personnes ayant l’âge légal pour consommer de l’alcool dans leur pays.",
+            ],
           },
         ],
       },

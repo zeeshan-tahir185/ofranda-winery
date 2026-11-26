@@ -39,14 +39,11 @@ const wineText = (locale: string, slug: string) => {
       ? {
           pageSummary: page.summary,
           vintageNote: page.vintageNote,
-          style: page.character.style,
           segment: page.character.segment,
           bodyLabel: page.character.body,
           profile: lines(page.character.profile),
           vinification: pairs(page.vinification),
           terroir: pairs(page.terroir),
-          characteristics: pairs(page.characteristics),
-          certification: pairs(page.certification),
           serving: pairs(page.serving),
           pairing: lines(page.pairing),
           ingredients: page.ingredients,
@@ -54,8 +51,6 @@ const wineText = (locale: string, slug: string) => {
           so2Value: page.so2[1],
           nutrition: pairs(page.nutrition),
           analytics: pairs(page.analytics),
-          producer: lines(page.producer),
-          bottling: pairs(page.bottling),
         }
       : {}),
   };
@@ -80,6 +75,7 @@ for (const [i, wine] of wines.entries()) {
       tint: wine.tint,
       order: i + 1,
       organic: wine.organic,
+      biodynamic: wine.biodynamic,
       limited: wine.limited,
       pageLive: !wine.soon,
       formats: wine.formats.map((f) => ({ litres: f.litres, alcohol: f.alcohol, bottles: f.bottles, lot: f.lot })),

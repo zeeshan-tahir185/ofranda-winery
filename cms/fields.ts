@@ -28,3 +28,5 @@ export const lines = (name: string, label: { en: string; ro: string }): Field =>
   labels: { singular: l("Line", "Linie"), plural: l("Lines", "Linii") },
   fields: [{ name: "text", type: "text", required: true, label: l("Text", "Text") }],
 });
+
+export const hidden = (field: Field): Field => ({ ...field, admin: { ...("admin" in field ? field.admin : {}), hidden: true } }) as Field;

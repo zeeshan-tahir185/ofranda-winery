@@ -57,6 +57,10 @@ const en = {
     fab: "Privacy settings",
   },
   footer: {
+    certs: [
+      ["Organic wine", "ECOCERT certified · MD-BIO-154"],
+      ["Biodynamic viticulture", "In conversion · Year 3"],
+    ],
     useful: "Useful links",
     about: "About us",
     certifications: "Our certifications",
@@ -70,10 +74,14 @@ const en = {
     cookieSettings: "Cookie settings",
   },
   company: {
-    tagline: "Artisanal wines certified organic by ECOCERT MD-BIO-154 from the Republic of Moldova.",
+    tagline:
+      "Artisanal wines certified organic by ECOCERT MD-BIO-154 from the Republic of Moldova.",
     about:
       "OFRANDA Winery is an artisanal winery in the Republic of Moldova, dedicated to producing high-quality wines. Located in Stăuceni, just 11 km from the centre of Chișinău, the winery combines a deep respect for nature, organic viticulture and a thoughtful approach to winemaking.",
-    address: ["Republic of Moldova, MD-4839", "46 Dumbrăvii Str, Stăuceni, Mun. Chișinău"],
+    address: [
+      "Republic of Moldova, MD-4839",
+      "46 Dumbrăvii Str, Stăuceni, Mun. Chișinău",
+    ],
   },
   hero: {
     eyebrow: ["Ofranda Winery", "Republic of Moldova"],
@@ -92,9 +100,18 @@ const en = {
     ],
     link: "Discover our story",
     pillars: [
-      { title: "The Earth", text: "We care for the soil as a living thing, without chemicals." },
-      { title: "The rhythms of nature", text: "We work with the seasons, the sun and the moon." },
-      { title: "Moldova’s terroir", text: "Our hills give each wine its own character." },
+      {
+        title: "The Earth",
+        text: "We care for the soil as a living thing, without chemicals.",
+      },
+      {
+        title: "The rhythms of nature",
+        text: "We work with the seasons, the sun and the moon.",
+      },
+      {
+        title: "Moldova’s terroir",
+        text: "Our hills give each wine its own character.",
+      },
     ],
   },
   cert: {
@@ -103,7 +120,8 @@ const en = {
     more: "Discover more about our certifications",
     organic: "Certified organic",
     since: "Since 5 December 2024",
-    ecoText: "A recognition of our commitment to organic and authentic viticulture.",
+    ecoText:
+      "A recognition of our commitment to organic and authentic viticulture.",
     ecoLink: "View our ECOCERT certification",
     bdvKicker: "Biodynamic conversion",
     bdvStage: "3rd year",
@@ -121,7 +139,8 @@ const en = {
     bdvTitle: "3rd year of conversion",
     biodyvin:
       "We are in our third year of conversion towards BIODYVIN biodynamic certification, a journey that reflects our values and our profound respect for the Earth and the rhythms of nature.",
-    bdvSoon: "View our BIODYVIN attestation, 3rd year of biodynamic conversion (PDF)",
+    bdvSoon:
+      "View our BIODYVIN attestation, 3rd year of biodynamic conversion (PDF)",
     chapters: [
       {
         title: ["Why we chose", "the ecological path"],
@@ -157,17 +176,16 @@ const en = {
     },
     page: {
       character: "Character",
-      style: "Style classification",
       profile: "Profile",
       body: "Body",
-      segment: "Category",
+      segment: "Collection",
       bodyScale: ["Light", "Medium", "Full"],
       ageing: "Ageing potential",
       harvest: "Harvest",
       bottled: "Bottled",
       window: "Drinking window",
       grapes: "Grape varieties",
-      tabs: ["Vinification", "Terroir", "Characteristics"],
+      tabs: ["Vinification", "Terroir"],
       certification: "Certification",
       organic: "Organic wine",
       biodynamic: "Biodynamic viticulture",
@@ -175,8 +193,7 @@ const en = {
       pairing: "Food pairing",
       ingredients: "Ingredients & nutrition",
       per100: "Nutritional values per 100 ml",
-      analytics: "Analytical data",
-      producer: "Producer",
+      analytics: "Laboratory parameters",
       responsible: "Responsible consumption",
       collection: "The OFRANDA collection",
       open: "Open",
@@ -248,7 +265,6 @@ const en = {
       vintageNote:
         "The 2024 vintage reflects the climatic conditions of the season, the maturity of the grapes and the careful selection of the raw material. Each vintage bears the imprint of a distinct year, and HUMMA 2024 expresses the particularities of this harvest through its unique character.",
       character: {
-        style: "Premium red wine",
         profile: ["Intense", "Structured", "Oak-aged"],
         body: "Full-bodied",
         segment: "Premium · Boutique",
@@ -260,24 +276,12 @@ const en = {
         ["Filtration", "Unfiltered"],
         ["Ageing", "24 months in wooden vessels"],
       ],
-      characteristics: [
-        ["Wine type", "Dry red wine"],
-        ["Vintage", "2024"],
-        ["Alcohol", "15.8% vol."],
-        ["Volume", "750 ml"],
-        ["Number of bottles", "4,415"],
-        ["Lot", "L007"],
-      ],
       terroir: [
         ["Origin", "Republic of Moldova"],
         ["Altitude", "190 m"],
         ["Exposure", "South-west facing"],
         ["Yield", "25 hl/hectare"],
         ["Soil type", ""],
-      ],
-      certification: [
-        ["Organic wine", "ECOCERT certified · MD-BIO-154"],
-        ["Biodynamic viticulture", "In conversion · Year 3"],
       ],
       serving: [
         ["Serving temperature", "16–18 °C"],
@@ -303,11 +307,59 @@ const en = {
         ["Non-reducing dry extract", "27.9 ± 0.3 g/L"],
         ["Relative density at 20 °C", "0.9917 ± 0.0002"],
       ],
-      producer: ["CRAMA OFRANDA", "GT „Ștefirța Roman”", "46 Dumbrăvii Street", "Stăuceni, Chișinău Municipality", "MD-4839, Republic of Moldova"],
-      bottling: [
-        ["Bottled by", "Crama OFRANDA"],
-        ["Bottling date", "5 June 2026"],
-        ["Lot", "L007"],
+    },
+    "vinul-fara-nume": {
+      summary:
+        "Not every story needs a name. Some are born from the land, grow in silence and reveal themselves with time. This wine is one such story — authentic, profound and timeless.",
+      vintageNote:
+        "The 2023 vintage, shaped by the pedoclimatic conditions of the Stăuceni area, expresses the character of the local terroir. The ripeness of the Fetească Neagră, Cabernet Sauvignon and Rară Neagră grapes provided the foundation for a blend defined by structure, phenolic complexity and distinctive varietal expression, reflecting the viticultural identity of the region.",
+      character: {
+        profile: ["Intense", "Structured", "Oak-aged"],
+        body: "Full-bodied wine",
+        segment: "Distinctive Selection",
+      },
+      vinification: [
+        ["Destemming", "Manual"],
+        ["Fermentation", "With indigenous yeasts"],
+        ["Extraction", "Gravity-assisted"],
+        ["Filtration", "Unfiltered"],
+        ["Ageing", "24 months in wooden vessels and 12 months in bottle"],
+      ],
+      terroir: [
+        ["Origin", "Republic of Moldova"],
+        ["Altitude", "190 m"],
+        ["Aspect", "South-west facing"],
+        ["Yield", "25 hl/ha"],
+        ["Soil type", ""],
+      ],
+      serving: [
+        ["Serving temperature", "16–18 °C"],
+        ["Recommended glassware", "Large-bowled red wine glass"],
+        ["Decanting", "Recommended"],
+      ],
+      pairing: [
+        "Beef",
+        "Lamb",
+        "Grilled or oven-roasted mushrooms",
+        "Aged cheeses",
+      ],
+      ingredients: "Grapes. NO ADDED SULPHITES",
+      so2: ["Total sulphur dioxide", "17 mg/L"],
+      nutrition: [
+        ["Energy", "352 kJ / 84 kcal"],
+        ["Carbohydrates", "1.3 g"],
+        ["of which sugars", "1.3 g"],
+      ],
+      analytics: [
+        ["Alcoholic strength", "14.5% vol."],
+        ["Total alcoholic strength", "14.5% vol."],
+        ["Glucose + fructose", "1.3 g/L"],
+        ["Titratable acidity", "5.5 g/L"],
+        ["Volatile acidity", "1.0 g/L"],
+        ["Total sulphur dioxide", "17 mg/L"],
+        ["Total dry extract", "28.7 g/L"],
+        ["Non-reducing dry extract", "27.4 g/L"],
+        ["Relative density at 20 °C", "0.9922"],
       ],
     },
   },
@@ -317,7 +369,8 @@ const en = {
     text: "Behind every OFRANDA wine are people, experience and a deep connection to the land. A winemaker who has devoted years to the art of wine, and local people who know these hills, the rhythms of nature and every season of the vine.",
     text2:
       "From tending the vineyards to harvesting the grapes, every gesture is carried out with patience, care and respect for what the Earth gives us. For us, wine begins long before it reaches the winery. It begins in the vineyard, in the hands of people and in the care given to every detail.",
-    quote: "We do not make the wine. We accompany it on its journey, from the soil to the bottle, striving to preserve its authenticity and soul.",
+    quote:
+      "We do not make the wine. We accompany it on its journey, from the soil to the bottle, striving to preserve its authenticity and soul.",
     owner: "Roman Stefirta",
     role: "Owner",
     link: "Discover our story",
@@ -325,16 +378,29 @@ const en = {
     storyTitle: "The story of Ofranda winery",
     more: "Ofranda continues to amaze.",
     timeline: [
-      { year: "2017", text: "The beginning: clearing the land and the first vine plantings." },
+      {
+        year: "2017",
+        text: "The beginning: clearing the land and the first vine plantings.",
+      },
       { year: "2022", text: "The first harvest transformed into wine." },
-      { year: "2023", text: "The beginning of the ECOCERT organic certification process and the first biodynamic assessment." },
-      { year: "2023–2025", text: "Years of harvests, experiences, discoveries and learning." },
-      { year: "2026–2027", text: "The first OFRANDA wine reaches the Moldovan market." },
+      {
+        year: "2023",
+        text: "The beginning of the ECOCERT organic certification process and the first biodynamic assessment.",
+      },
+      {
+        year: "2023–2025",
+        text: "Years of harvests, experiences, discoveries and learning.",
+      },
+      {
+        year: "2026–2027",
+        text: "The first OFRANDA wine reaches the Moldovan market.",
+      },
     ],
   },
   story: {
     title: "Our story",
-    description: "The history of Ofranda Winery and the people behind it, from the first vines in 2017 to the first wine on the Moldovan market.",
+    description:
+      "The history of Ofranda Winery and the people behind it, from the first vines in 2017 to the first wine on the Moldovan market.",
     chronicle: ["From the first vines", "to the first bottle"],
   },
   land: {
@@ -353,8 +419,15 @@ const en = {
     eyebrow: "Life at the winery",
     title: ["News", "& events"],
     pageTitle: "News & events",
-    description: "News, exhibitions, tastings, awards and press from Ofranda Winery.",
-    categories: { all: "All", winery: "Winery", certification: "Certification", events: "Events", press: "Press" },
+    description:
+      "News, exhibitions, tastings, awards and press from Ofranda Winery.",
+    categories: {
+      all: "All",
+      winery: "Winery",
+      certification: "Certification",
+      events: "Events",
+      press: "Press",
+    },
     posts: {
       "harvest-2026-picked-by-hand": {
         title: "The 2026 harvest, picked by hand",
@@ -375,7 +448,9 @@ const en = {
       "evening-tasting-among-the-vines": {
         title: "An evening tasting among the vines",
         text: "An open tasting at the winery, with the people who make the wine.",
-        body: ["Details of upcoming tastings and events at the winery will be announced here."],
+        body: [
+          "Details of upcoming tastings and events at the winery will be announced here.",
+        ],
       },
       "ofranda-in-the-press": {
         title: "Ofranda in the press",
@@ -389,9 +464,13 @@ const en = {
     docs: {
       "privacy-policy": {
         title: "Privacy policy",
-        description: "How Ofranda Winery collects, uses and protects personal data.",
+        description:
+          "How Ofranda Winery collects, uses and protects personal data.",
         sections: [
-          { heading: "Who we are", body: ["This website is operated by {controller}"] },
+          {
+            heading: "Who we are",
+            body: ["This website is operated by {controller}"],
+          },
           {
             heading: "What data we collect",
             body: [
@@ -413,13 +492,16 @@ const en = {
           },
           {
             heading: "How long we keep it",
-            body: ["We keep personal data only as long as needed for the purpose it was collected for, or as required by law."],
+            body: [
+              "We keep personal data only as long as needed for the purpose it was collected for, or as required by law.",
+            ],
           },
         ],
       },
       "cookie-policy": {
         title: "Cookie policy",
-        description: "Which cookies and similar technologies the Ofranda website uses and how to manage them.",
+        description:
+          "Which cookies and similar technologies the Ofranda website uses and how to manage them.",
         sections: [
           {
             heading: "What we use",
@@ -431,7 +513,9 @@ const en = {
           },
           {
             heading: "Wine pages opened from a QR code",
-            body: ["The wine pages that open from the QR code on our bottles use no cookies and no tracking at all, so they load directly without any notice."],
+            body: [
+              "The wine pages that open from the QR code on our bottles use no cookies and no tracking at all, so they load directly without any notice.",
+            ],
           },
           {
             heading: "Changing your choice",
@@ -447,10 +531,15 @@ const en = {
         sections: [
           { heading: "Company", body: ["{legal}", "{idno}"] },
           { heading: "Address", body: ["{address}"] },
-          { heading: "Contact", body: ["Tel. / WhatsApp: {phone}", "Email: {email}"] },
+          {
+            heading: "Contact",
+            body: ["Tel. / WhatsApp: {phone}", "Email: {email}"],
+          },
           {
             heading: "Responsible consumption",
-            body: ["This website contains information about wine and is intended for people of legal drinking age in their country."],
+            body: [
+              "This website contains information about wine and is intended for people of legal drinking age in their country.",
+            ],
           },
         ],
       },

@@ -60,6 +60,7 @@ export type Wine = {
   vintage: string;
   grapes: string;
   organic: boolean;
+  biodynamic?: boolean;
   limited: boolean;
   formats: WineFormat[];
   image: string;
@@ -76,8 +77,9 @@ export const wines: Wine[] = [
     vintage: "2024",
     grapes: "Fetească Neagră · Cabernet Sauvignon · Rară Neagră",
     organic: true,
+    biodynamic: true,
     limited: false,
-    formats: [{ litres: 0.75, bottles: 4415, lot: "L007", alcohol: 15.8 }],
+    formats: [{ litres: 0.75, bottles: 4415, lot: "L 007", alcohol: 15.5 }],
     image: "/media/bottles/humma.png",
     tint: "#2a1719",
     bottled: "2026-06-05",
@@ -103,10 +105,12 @@ export const wines: Wine[] = [
     grapes: "Fetească Neagră · Cabernet Sauvignon · Rară Neagră",
     organic: false,
     limited: false,
-    formats: [{ litres: 0.75, bottles: 13783, lot: "L005", alcohol: 14.7 }],
+    formats: [{ litres: 0.75, bottles: 13786, lot: "L 005", alcohol: 14.5 }],
     image: "/media/bottles/vinul-fara-nume.png",
     tint: "#211c19",
-    soon: true,
+    bottled: "2025-05-06",
+    body: 3,
+    soon: false,
   },
   {
     slug: "cabernet-sauvignon",
