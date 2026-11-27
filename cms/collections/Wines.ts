@@ -160,6 +160,40 @@ export const Wines: CollectionConfig = {
             hidden(pairs("bottling", l("Bottling", "Îmbuteliere"))),
           ],
         },
+        {
+          label: l("E-label", "Etichetă electronică"),
+          description: l(
+            "EU e-label page for the QR code on the bottle: ofranda.com/<language>/e-label/<link name>. Alcohol comes from the bottle formats and the nutrition table from the Wine page tab.",
+            "Pagina etichetei electronice UE pentru codul QR de pe sticlă: ofranda.com/<limbă>/e-label/<nume link>. Alcoolul este preluat din formatele de sticlă, iar tabelul nutrițional din fila Pagina vinului.",
+          ),
+          fields: [
+            {
+              type: "row",
+              fields: [
+                { name: "labelLive", type: "checkbox", label: l("E-label page is live", "Pagina etichetei electronice este publicată"), admin: { width: "50%" } },
+                { name: "ean", type: "text", label: l("Barcode (EAN-13)", "Cod de bare (EAN-13)"), admin: { width: "50%" } },
+              ],
+            },
+            { name: "labelIngredients", type: "text", localized: true, label: l("Ingredients", "Ingrediente") },
+            { name: "labelAllergens", type: "text", localized: true, label: l("Allergens", "Alergeni") },
+            {
+              name: "recycling",
+              type: "array",
+              label: l("Recycling codes", "Coduri de reciclare"),
+              labels: { singular: l("Code", "Cod"), plural: l("Codes", "Coduri") },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    { name: "code", type: "text", required: true, label: l("Number", "Număr") },
+                    { name: "material", type: "text", required: true, label: l("Material", "Material") },
+                  ],
+                },
+              ],
+            },
+            { name: "labelExtra", type: "textarea", localized: true, label: l("Extra info", "Informații suplimentare") },
+          ],
+        },
       ],
     },
   ],

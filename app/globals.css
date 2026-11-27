@@ -1556,10 +1556,25 @@ html.is-scrolled .header__logo {
   color: var(--dim-text);
 }
 
-.cellar__leaf {
+.cellar__certs {
   margin-top: 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cellar__leaf {
   width: 74px;
   color: var(--dim-text);
+}
+
+.cellar__bdv {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 6px;
+  background: var(--ivory-text);
+  object-fit: contain;
 }
 
 .cellar__leaf .eu-leaf__code {
@@ -2845,11 +2860,21 @@ html:not([data-age="ok"]) .privacy-fab {
     line-height: 1.5;
   }
 
-  .cellar__leaf {
+  .cellar__certs {
     grid-column: 2;
     grid-row: 1 / span 2;
-    width: 58px;
     margin: 0;
+    gap: 8px;
+  }
+
+  .cellar__leaf {
+    width: 58px;
+  }
+
+  .cellar__bdv {
+    width: 39px;
+    height: 39px;
+    padding: 4px;
   }
 
   .cellar__nav {

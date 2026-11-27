@@ -21,6 +21,7 @@ export default function Collection({ items, locale }: { items: WineView[]; local
       tint: wine.tint,
       specs,
       organic: wine.organic ? certificates.ecocert.code : undefined,
+      biodynamic: wine.biodynamic,
       href: !wine.page ? undefined : `/${locale}/wines/${wine.slug}`,
       image: wine.image,
     };

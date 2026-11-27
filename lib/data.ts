@@ -19,7 +19,16 @@ export type WinePage = {
   ageing?: [number, number];
 };
 
-export type WineView = Wine & { summary?: string; notes: string[]; page?: WinePage };
+export type WineLabel = {
+  ean: string;
+  ingredients: string;
+  allergens: string;
+  nutrition: Pair[];
+  recycling: { code: string; material: string }[];
+  extra: string;
+};
+
+export type WineView = Wine & { summary?: string; notes: string[]; page?: WinePage; label?: WineLabel };
 
 export type PostView = { slug: string; category: NewsCategory; iso: string; image: string; title: string; text: string; body: string[] };
 
@@ -98,6 +107,12 @@ type CmsWine = {
   so2Value?: string | null;
   nutrition?: Row[] | null;
   analytics?: Row[] | null;
+  labelLive?: boolean | null;
+  ean?: string | null;
+  labelIngredients?: string | null;
+  labelAllergens?: string | null;
+  recycling?: { code?: string | null; material?: string | null }[] | null;
+  labelExtra?: string | null;
 };
 
 const fromCms = (w: CmsWine): WineView => {
@@ -135,6 +150,16 @@ const fromCms = (w: CmsWine): WineView => {
           ageing: w.ageingFrom && w.ageingTo ? [w.ageingFrom, w.ageingTo] : undefined,
         }
       : undefined,
+    label: w.labelLive
+      ? {
+          ean: w.ean ?? "",
+          ingredients: w.labelIngredients ?? "",
+          allergens: w.labelAllergens ?? "",
+          nutrition: toPairs(w.nutrition),
+          recycling: (w.recycling ?? []).map((r) => ({ code: r.code ?? "", material: r.material ?? "" })),
+          extra: w.labelExtra ?? "",
+        }
+      : undefined,
   };
 };
 
@@ -147,6 +172,8 @@ export const getWines = cache(async (locale: string): Promise<WineView[]> => {
 });
 
 export const getWine = async (locale: string, slug: string) => (await getWines(locale)).find((w) => w.slug === slug && w.page);
+
+export const getLabel = async (locale: string, slug: string) => (await getWines(locale)).find((w) => w.slug === slug && w.label);
 
 const staticPosts = (locale: string): PostView[] => {
   const posts = getDict(locale).news.posts;

@@ -165,6 +165,33 @@ const de: Dict = {
     railLabel: "Weine",
     others: ["Weitere Weine,", "die Ihnen gefallen könnten"],
   },
+  eLabel: {
+    title: "EU-E-Label – Produktinformationen",
+    grapes: "Rebsorten",
+    ingredients: "Zutaten",
+    allergens: "Allergene",
+    nutrition: "Nährwertdeklaration",
+    average: "Durchschnittswerte",
+    per100: "pro 100 ml",
+    nutritionRows: ["Brennwert", "Kohlenhydrate", "davon Zucker"],
+    alcohol: "Alkoholgehalt",
+    producer: "Hersteller",
+    warnings: [
+      "Nicht für Schwangere.",
+      "Nicht für Personen unter 18 Jahren.",
+      "Kein Alkohol am Steuer.",
+    ],
+    recycle: "Bitte recyceln:",
+    recycleNote: "Glasflasche und Papieretikett.",
+    dependence: "Alkohol kann abhängig machen.",
+    legal:
+      "Elektronisches Etikett gemäß Verordnung (EU) 2021/2117 und Verordnung (EU) Nr. 1169/2011 sowie Regierungsbeschluss (HG) Nr. 356/2015 der Republik Moldau.",
+    extra: "Zusätzliche Informationen:",
+    barcode: "Strichcode",
+    producerName: "GT ŞTEFÎRŢA ROMAN",
+    address:
+      "MD-4839 R. Moldova, mun.Chisinau, or.Stauceni, str.Dumbravei, 46",
+  },
   wine: {
     style: "Trockener Rotwein",
     edition: "Erste Abfüllung · Limitierte Edition",

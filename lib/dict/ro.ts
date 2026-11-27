@@ -161,6 +161,33 @@ const ro: Dict = {
     railLabel: "vinuri",
     others: ["Alte vinuri", "care v-ar putea plăcea"],
   },
+  eLabel: {
+    title: "Etichetă electronică UE – Informații despre produs",
+    grapes: "Soiuri de struguri",
+    ingredients: "Ingrediente",
+    allergens: "Alergeni",
+    nutrition: "Declarație nutrițională",
+    average: "Valori medii",
+    per100: "per 100 ml",
+    nutritionRows: ["Valoare energetică", "Glucide", "din care zaharuri"],
+    alcohol: "Conținut de alcool",
+    producer: "Producător",
+    warnings: [
+      "Nu se recomandă femeilor însărcinate.",
+      "Interzis persoanelor sub 18 ani.",
+      "Nu conduceți după consumul de alcool.",
+    ],
+    recycle: "Vă rugăm să reciclați:",
+    recycleNote: "Sticla și eticheta de hârtie.",
+    dependence: "Alcoolul poate crea dependență.",
+    legal:
+      "Etichetă electronică în conformitate cu Regulamentul (UE) 2021/2117 și Regulamentul (UE) nr. 1169/2011, precum și cu Hotărârea Guvernului (HG) nr. 356/2015 a Republicii Moldova.",
+    extra: "Informații suplimentare:",
+    barcode: "Cod de bare",
+    producerName: "GT ŞTEFÎRŢA ROMAN",
+    address:
+      "MD-4839 R. Moldova, mun.Chisinau, or.Stauceni, str.Dumbravei, 46",
+  },
   wine: {
     style: "Vin roșu sec",
     edition: "Prima îmbuteliere · Colecție limitată",

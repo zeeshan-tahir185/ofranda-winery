@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { EuLeaf } from "./Logo";
+import { BiodyvinMark, EuLeaf } from "./Logo";
 import { ArrowIcon } from "./Icons";
 
 export type CellarItem = {
@@ -16,6 +16,7 @@ export type CellarItem = {
   notes: string[];
   specs: { label: string; value: string }[];
   organic?: string;
+  biodynamic?: boolean;
   href?: string;
   image: string;
   tint: string;
@@ -159,7 +160,12 @@ export default function Cellar({ items, label, discover, soon, notesTitle }: Pro
                       ))}
                     </ul>
                   )}
-                  {w.organic && <EuLeaf className="cellar__leaf" code={w.organic} />}
+                  {(w.organic || w.biodynamic) && (
+                    <div className="cellar__certs">
+                      {w.biodynamic && <BiodyvinMark className="cellar__bdv" />}
+                      {w.organic && <EuLeaf className="cellar__leaf" code={w.organic} />}
+                    </div>
+                  )}
                 </div>
               </article>
             );
