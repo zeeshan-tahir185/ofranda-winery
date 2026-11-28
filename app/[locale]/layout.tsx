@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Bodoni_Moda, Cormorant_Garamond, Jost, Marcellus } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import { locales, site, type Locale } from "@/lib/content";
 import { alternates, getDict } from "@/lib/i18n";
 import Motion from "@/components/Motion";
@@ -26,21 +26,6 @@ const sans = Jost({
   display: "swap",
 });
 
-const display = Bodoni_Moda({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const mark = Marcellus({
-  subsets: ["latin", "latin-ext"],
-  weight: "400",
-  variable: "--font-mark",
-  display: "swap",
-});
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = getDict(locale);
@@ -61,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f3ede3",
+  themeColor: "#faf8f3",
 };
 
 export function generateStaticParams() {
@@ -83,7 +68,7 @@ export default async function RootLayout({
   const headerText = { nav: t.nav, language: t.ui.language, primary: t.ui.primary, secondary: t.ui.secondary, homeLabel: t.ui.homeLabel, menu: t.ui.menu };
 
   return (
-    <html lang={locale} className={`${serif.variable} ${sans.variable} ${mark.variable} ${display.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: gateScript }} />
       </head>

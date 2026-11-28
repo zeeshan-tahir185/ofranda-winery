@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import type { Dict } from "@/lib/i18n";
 import { isQrPage } from "./Analytics";
-import { locales } from "@/lib/content";
+import LangMenu from "./LangMenu";
 import { Logo } from "./Logo";
 
 const VALID_DAYS = 30;
@@ -15,7 +15,6 @@ export default function AgeGate({ locale, t, langLabel }: { locale: string; t: D
   const [stage, setStage] = useState<Stage>("ask");
   const pathname = usePathname();
   const qr = isQrPage(pathname);
-  const rest = (pathname || "").replace(/^\/[a-z]{2}(?=\/|$)/, "");
 
   useEffect(() => {
     const lenis = (window as unknown as { lenis?: { stop(): void; start(): void } | null }).lenis;
@@ -43,13 +42,7 @@ export default function AgeGate({ locale, t, langLabel }: { locale: string; t: D
     <div className={`gate gate--${stage}`} role="dialog" aria-modal="true" aria-labelledby="gate-title">
       <div className="gate__veil" />
       <div className="gate__panel">
-        <nav className="gate__langs" aria-label={langLabel}>
-          {locales.map((l) => (
-            <a key={l} href={`/${l}${rest}`} className={l === locale ? "is-active" : undefined} aria-current={l === locale ? "page" : undefined}>
-              {l.toUpperCase()}
-            </a>
-          ))}
-        </nav>
+        <LangMenu locale={locale} label={langLabel} className="gate__lang" />
         <div className="gate__emblem">
           <Logo />
         </div>
