@@ -1,6 +1,14 @@
 export const locales = ["ro", "en", "fr", "de", "ru"] as const;
 export type Locale = (typeof locales)[number];
 
+export const localeNames: Record<Locale, string> = {
+  ro: "Română",
+  en: "English",
+  fr: "Français",
+  de: "Deutsch",
+  ru: "Русский",
+};
+
 export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://ofranda-winery.vercel.app").replace(/\/$/, ""),
   name: "Ofranda Winery",

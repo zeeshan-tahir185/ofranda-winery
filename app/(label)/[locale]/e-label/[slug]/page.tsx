@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Barcode from "@/components/Barcode";
+import LangMenu from "@/components/LangMenu";
 import { Logo } from "@/components/Logo";
 import { BanIcon, LabelIcon, RecycleCode, RecycleIcon } from "@/components/LabelIcons";
 import { alcoholOf, certificates, locales, site } from "@/lib/content";
@@ -34,6 +35,7 @@ export default async function ELabelPage({ params }: Params) {
   if (!wine || !label) notFound();
   const d = getDict(locale);
   const t = d.eLabel;
+  const [first, ...more] = wine.name.split(" ");
   const alcohol = alcoholOf(wine)
     .map((a) => formatAlcohol(locale, a))
     .join(" · ");
@@ -41,6 +43,7 @@ export default async function ELabelPage({ params }: Params) {
   return (
     <main className="el">
       <header className="el-head">
+        <LangMenu locale={locale} label={d.ui.language} className="el-lang" />
         <div className="el-brand">
           <Logo className="el-logo" />
         </div>
@@ -53,7 +56,10 @@ export default async function ELabelPage({ params }: Params) {
         </div>
 
         <div className="el-info">
-          <h1 className="el-name">{wine.name}</h1>
+          <h1 className="el-name">
+            <span>{first}</span>
+            {more.length > 0 && <span>{` ${more.join(" ")}`}</span>}
+          </h1>
           <p className="el-sub">
             {wine.vintage}
             <span className="el-dot" aria-hidden="true">

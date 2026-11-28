@@ -1,23 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { contact, locales, nav, type NavKey } from "@/lib/content";
+import { contact, nav, type NavKey } from "@/lib/content";
 import { MailIcon, PhoneIcon } from "./Icons";
+import LangMenu from "./LangMenu";
 import { Logo } from "./Logo";
-
-export function LangLinks({ locale, label, className = "langs" }: { locale: string; label: string; className?: string }) {
-  const pathname = usePathname() || `/${locale}`;
-  const rest = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "");
-  return (
-    <nav className={className} aria-label={label}>
-      {locales.map((l) => (
-        <a key={l} href={`/${l}${rest}`} className={l === locale ? "is-active" : undefined} aria-current={l === locale ? "page" : undefined}>
-          {l.toUpperCase()}
-        </a>
-      ))}
-    </nav>
-  );
-}
 
 export type HeaderText = {
   nav: Record<NavKey, string>;
@@ -46,7 +32,7 @@ export default function Header({ locale, t }: { locale: string; t: HeaderText })
             {contact.phone}
           </a>
         </div>
-        <LangLinks locale={locale} label={t.language} />
+        <LangMenu locale={locale} label={t.language} />
       </div>
 
       <div className="header__bar">
@@ -85,7 +71,7 @@ export default function Header({ locale, t }: { locale: string; t: HeaderText })
         <div className="menu__foot">
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
           <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a>
-          <LangLinks locale={locale} label={t.language} />
+          <LangMenu locale={locale} label={t.language} up />
         </div>
       </div>
     </header>

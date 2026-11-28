@@ -6,7 +6,6 @@ import JsonLd from "@/components/JsonLd";
 import ShareBar from "@/components/ShareBar";
 import BottleTilt from "@/components/BottleTilt";
 import Dossier, { type DossierTab } from "@/components/Dossier";
-import { BiodyvinMark, EuLeaf } from "@/components/Logo";
 import TechIcon, { WarningIcon } from "@/components/TechIcon";
 import { alternates, formatAlcohol, formatLitres, formatNumber, getDict } from "@/lib/i18n";
 import { alcoholOf, certificates, locales, site } from "@/lib/content";
@@ -20,14 +19,8 @@ export async function generateStaticParams() {
 }
 
 const nameLines = (name: string) => {
-  const words = name.toUpperCase().split(" ");
-  const out: string[] = [];
-  for (const w of words) {
-    const last = out[out.length - 1];
-    if (last && (last + " " + w).length <= 10) out[out.length - 1] = last + " " + w;
-    else out.push(w);
-  }
-  return out;
+  const [first, ...more] = name.toUpperCase().split(" ");
+  return more.length ? [first, more.join(" ")] : [first];
 };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -83,7 +76,6 @@ export default async function WinePage({ params }: Params) {
     { icon: "volume", label: t.labels.volume, value: wine.formats.map((f) => formatLitres(locale, f.litres)).join(" · ") },
     { icon: "bottles", label: t.labels.bottles, value: wine.formats.map((f) => formatNumber(locale, f.bottles)).join(" · ") },
     { icon: "lot", label: t.labels.lot, value: wine.formats.map((f) => f.lot).join(" · ") },
-    { icon: "calendar", label: t.labels.vintage, value: wine.vintage },
   ];
 
   return (
@@ -149,9 +141,7 @@ export default async function WinePage({ params }: Params) {
           </div>
 
           <div className="vp__intro">
-            <p className="vp__kicker">
-              {t.style} <i>{wine.vintage}</i>
-            </p>
+            <p className="vp__kicker">{t.style}</p>
             <p className="vp__grapes">{wine.grapes}</p>
             <p className="vp__summary">{page.summary}</p>
             <p className="vp__note">{page.vintageNote}</p>
@@ -199,8 +189,13 @@ export default async function WinePage({ params }: Params) {
             ))}
             {(wine.organic || wine.biodynamic) && (
               <li className="vp__leaf">
-                {wine.biodynamic && <BiodyvinMark className="vp__bdv" />}
-                {wine.organic && <EuLeaf code={certificates.ecocert.code} />}
+                {wine.biodynamic && <img src="/media/logos/biodyvin-badge.png" alt="BIODYVIN" width={400} height={300} className="vp__cert" />}
+                {wine.organic && (
+                  <span className="vp__cert-bio">
+                    <img src="/media/logos/bio-eu.png" alt="EU organic" width={400} height={300} className="vp__cert" />
+                    <small>{certificates.ecocert.code}</small>
+                  </span>
+                )}
               </li>
             )}
           </ul>

@@ -1,6 +1,6 @@
 import { company, contact, social } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
-import { LangLinks } from "./Header";
+import LangMenu from "./LangMenu";
 import { BiodyvinMark, EuLeaf, Logo } from "./Logo";
 import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, YoutubeIcon } from "./Icons";
 
@@ -63,7 +63,7 @@ export default function Footer({ locale }: { locale: string }) {
               );
             })}
           </div>
-          <LangLinks locale={locale} label={t.ui.language} className="langs langs--footer" />
+          <LangMenu locale={locale} label={t.ui.language} className="lang--footer" />
           <div className="footer__certs">
             <h4>{t.wine.page.certification}</h4>
             <div className="footer__cert">
